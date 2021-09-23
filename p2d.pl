@@ -94,8 +94,9 @@ foreach $line(<DTHIN>) {
   
   #split the line up into scalars
   
-  ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,$daged,
-   $fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,$dfnh)=split("\t", $line);
+  ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,
+	$daged,$fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,
+	$dfnh)=split("\t", $line);
 
   #make sure it is unused
   $did2=~s/\s//g;
@@ -133,8 +134,8 @@ foreach $line(<DTHIN>) {
 
 foreach $line(<BIRIN>) {
 
-  ($bpar,$bid1,$bid2,$uni,$bdate,$byyy,$bmm,$bdd,$bfn,$bsx,$bfnf,$blnf,$bfnm,$blnm,$bpob,
-   $bfng,$blng,$bpog) = split("\t",$line);
+  ($bpar,$bid1,$bid2,$uni,$bdate,$byyy,$bmm,$bdd,$bfn,$bsx,$bfnf,$blnf,$bfnm,
+	$blnm,$bpob,$bfng,$blng,$bpog) = split("\t",$line);
   
   #create this entry in the birth id hash
 
@@ -238,17 +239,10 @@ foreach $line (<CROAT>) {
    $sidk7,$sidk8,$sidk9,$sidk10,$sidk11,$sidk12,$sidk13,$sidk14,
    $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,
    $remark7,$remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
-   $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,
-   $remarok7,$remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
+   $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
+	 $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $line);
-
-
-  if($bid==211222) {
-
-    $bob=1;
-    
-  }
 
   #put line into hash so I can put linked deaths there later
 
@@ -256,12 +250,6 @@ foreach $line (<CROAT>) {
 
   $key2=();
   $firstevent=();
-
-  if($bid==224010) {
-
-    $bob=1;
-
-  }
 
   #only take those who are not "real" people
 
@@ -345,8 +333,8 @@ foreach $line (<CROAT>) {
 
     #get the date of the last child
 
-    $dob = join("\t",$dobk1, $dobk2, $dobk3, $dobk4, $dobk5, $dobk6, $dobk7, $dobk8, 
-		$dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14);
+    $dob = join("\t",$dobk1, $dobk2, $dobk3, $dobk4, $dobk5, $dobk6, $dobk7,
+		$dobk8, $dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14);
     
     $dob=~s/NA//g;
     
@@ -362,8 +350,9 @@ foreach $line (<CROAT>) {
 
     foreach $ref(@array) {
     
-      ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,$daged,
-       $fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,$dfnh)=split("\t", $ref);
+      ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,
+			$dagem,$daged,$fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,
+			$dfnh)=split("\t", $ref);
 
       #no exact conditions to check since we don't know these people's exact age
       #wait - they can't die before they stop having kids, make sure that if age is imputed from 
@@ -456,10 +445,10 @@ foreach $line(@links) {
      $dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14, 
      $sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,
      $sidk7,$sidk8,$sidk9,$sidk10,$sidk11,$sidk12,$sidk13,$sidk14,
-     $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,
-     $remark7,$remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
-     $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,
-     $remarok7,$remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
+     $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,$remark7,
+		 $remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
+     $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
+		 $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
      $park1,$park2,$park3,$park4,$park5,$park6,$park7,
      $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $rec);
     
@@ -483,10 +472,10 @@ foreach $line(@links) {
 		 $dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14, 
 		 $sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,
 		 $sidk7,$sidk8,$sidk9,$sidk10,$sidk11,$sidk12,$sidk13,$sidk14,
-		 $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,
-		 $remark7,$remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
-		 $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,
-		 $remarok7,$remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
+		 $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,$remark7,$remark8,
+		 $remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
+		 $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
+		 $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
 		 $park1,$park2,$park3,$park4,$park5,$park6,$park7,
 		 $park8,$park9,$park10,$park11,$park12,$park13,$park14);
 
@@ -526,8 +515,8 @@ foreach $bid (@bid) {
 }
 
 
-print(DETAIL "There were $possible non-real people and $deaths_avail deaths unlinked.\n");
-print(DETAIL "$prelim_match had at least one preliminary match and\n$match of these were ultimately linked to a death\n");
+print(DETAIL "There were $possible non-real people and $deaths_avail deaths unlinked.\n\n");
+print(DETAIL "$prelim_match had at least one preliminary match and $match of these were ultimately linked to a death\n\n");
 print(DETAIL "$unmatched had no preliminary matches\n");
 
 ##################################################################################
