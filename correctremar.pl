@@ -2,18 +2,21 @@
 ## are mixed up due to m2m.  It should be run right after
 ## createdatasets.pl
 
-#read in croat data
-#use lib(qw(/home/davis/hdir1/aarong/projects/CROAT/MATCH));
 require generalsubs;
+
+#############
+# INPUT/OUTPUT
 
 $croatdatafile="output/croatdata.txt";
 $m2mfile="output/m2m.matches.txt";
 open (CROAT,"<$croatdatafile") || die ("cant open"." $croatdatafile");
-
 open (M2M,"<$m2mfile") || die ("cant open"." $m2mfile");
 
 %croat=();
 %id2m_hash=();
+
+##########################
+# Section 1: Read in full data and set up hashes
 
 foreach $line(<CROAT>) {
 
@@ -38,13 +41,6 @@ foreach $line(<CROAT>) {
    $remarok14,
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $line);
-
-
-  if($bid==219466) {
-
-    $bob=1;
-
-  }
 
   #get the bids associated with first marriages
   $id2m_hash{"$mid1"."$sex"}=$bid if(&isnot_na($mid1));
@@ -92,9 +88,7 @@ foreach $line(<CROAT>) {
     } 
 
   }
-   
-  #some problem with spouse ids here as well - deal with that later
-
+  
   #put line in a hash for later processing and output
       
   $croat{$bid}=$line;
@@ -120,6 +114,10 @@ foreach $m2m(<M2M>) {
 }
 
 close(CROAT);
+
+##################
+#  Section 2: Fix pointers and print corrected line
+
 open (CROAT,">$croatdatafile") || die ("cant open"." $croatdatafile");
 
 @id = keys %croat;
@@ -147,28 +145,13 @@ foreach $id(@id) {
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $croat{$id});
 
-  #pull out the parent ided from earlier
-
-  if($bid==53949) {
-
-    $bob=1;
-
-  }
-
-  ##########################################################################################
-  #OK I've got to redo all of the spouse links for remarriages - this is a bit hairy
-
+  #OK I've got to redo all of the spouse links for remarriages
   #check each sid to make sure it is not a remarriage
 
   $osex="m" if($sex eq "f");
   $osex="f" if($sex eq "m");
 
-  #######################
-  # OK here we go
-  if($bid==53024) {
-    $bob=1;
-  }
-
+  #need to check by marity
   if(&isnot_na($mid1)) {
     ##Marity 1
     $currentmar=();
@@ -181,26 +164,19 @@ foreach $id(@id) {
     #if there was a previous marriage, then find the spouse's bid from that earliest marriage
     if(&isnotnull($currentmar)) {
       $replacement=$id2m_hash{"$currentmar"."$osex"};
-      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
-	     $sidk11,$sidk12,$sidk13,$sidk14);
+      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,
+      $sidk10,$sidk11,$sidk12,$sidk13,$sidk14);
       @newsidk=();
       foreach $sidk(@sidk) {
-	
-	if($sid1==$sidk) {
-	  
-	  push(@newsidk,$replacement);
-	  
-	} else {
-	  
-	  push(@newsidk,$sidk);
-	  
-	}
-	
+	       if($sid1==$sidk) {
+	          push(@newsidk,$replacement);
+	        } else {
+	           push(@newsidk,$sidk);
+	        }
       }
       ($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
        $sidk11,$sidk12,$sidk13,$sidk14)=@newsidk;
       $sid1=$replacement;
-      #also need to replace the sidk's that correspond to that marriage - that's a bitch
     }
   }  
 
@@ -216,26 +192,20 @@ foreach $id(@id) {
     #if there was a previous marriage, then find the spouse's bid from that earliest marriage
     if(&isnotnull($currentmar)) {
       $replacement=$id2m_hash{"$currentmar"."$osex"};
-      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
-	     $sidk11,$sidk12,$sidk13,$sidk14);
+      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,
+      $sidk10,$sidk11,$sidk12,$sidk13,$sidk14);
       @newsidk=();
-      foreach $sidk(@sidk) {
-	
-	if($sid2==$sidk) {
+      foreach $sidk(@sidk) {	
+	       if($sid2==$sidk) {
+	          push(@newsidk,$replacement);
+	       } else {  
+	          push(@newsidk,$sidk);
 	  
-	  push(@newsidk,$replacement);
-	  
-	} else {
-	  
-	  push(@newsidk,$sidk);
-	  
-	}
-
+	       }
       }
       ($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
        $sidk11,$sidk12,$sidk13,$sidk14)=@newsidk;
       $sid2=$replacement;
-      #also need to replace the sidk's that correspond to that marriage - that's a bitch
     }
   }    
 
@@ -251,26 +221,19 @@ foreach $id(@id) {
     #if there was a previous marriage, then find the spouse's bid from that earliest marriage
     if(&isnotnull($currentmar)) {
       $replacement=$id2m_hash{"$currentmar"."$osex"};
-    @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
-	   $sidk11,$sidk12,$sidk13,$sidk14);
+      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,
+      $sidk10,$sidk11,$sidk12,$sidk13,$sidk14);
       @newsidk=();
       foreach $sidk(@sidk) {
-	
-	if($sid3==$sidk) {
-	  
-	  push(@newsidk,$replacement);
-	  
-	} else {
-	  
-	  push(@newsidk,$sidk);
-	  
-	}
-	
+	      if($sid3==$sidk) {	  
+	        push(@newsidk,$replacement);
+	      } else { 
+	        push(@newsidk,$sidk);  
+	      }
       }
       ($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
        $sidk11,$sidk12,$sidk13,$sidk14)=@newsidk;
       $sid3=$replacement;
-      #also need to replace the sidk's that correspond to that marriage - that's a bitch
     }
   }    
 
@@ -286,26 +249,19 @@ foreach $id(@id) {
     #if there was a previous marriage, then find the spouse's bid from that earliest marriage
     if(&isnotnull($currentmar)) {
       $replacement=$id2m_hash{"$currentmar"."$osex"};
-      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
-	     $sidk11,$sidk12,$sidk13,$sidk14);
+      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,
+      $sidk10,$sidk11,$sidk12,$sidk13,$sidk14);
       @newsidk=();
-      foreach $sidk(@sidk) {
-	
-	if($sid4==$sidk) {
-	  
-	  push(@newsidk,$replacement);
-	  
-	} else {
-	  
-	  push(@newsidk,$sidk);
-	  
-	}
-	
+      foreach $sidk(@sidk) {	
+	       if($sid4==$sidk) {	  
+	          push(@newsidk,$replacement);	  
+	       } else {  
+	          push(@newsidk,$sidk);  
+	       }
       }
       ($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
        $sidk11,$sidk12,$sidk13,$sidk14)=@newsidk;
       $sid4=$replacement;
-      #also need to replace the sidk's that correspond to that marriage - that's a bitch
     }
   }    
 
@@ -321,21 +277,15 @@ foreach $id(@id) {
     #if there was a previous marriage, then find the spouse's bid from that earliest marriage
     if(&isnotnull($currentmar)) {
       $replacement=$id2m_hash{"$currentmar"."$osex"};
-      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
-	     $sidk11,$sidk12,$sidk13,$sidk14);
+      @sidk=($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,
+      $sidk10,$sidk11,$sidk12,$sidk13,$sidk14);
       @newsidk=();
       foreach $sidk(@sidk) {
-	
-	if($sid5==$sidk) {
-	  
-	  push(@newsidk,$replacement);
-	  
-	} else {
-	  
-	  push(@newsidk,$sidk);
-	  
-	}
-	
+	       if($sid5==$sidk) {	  
+	          push(@newsidk,$replacement);	  
+	       } else {	  
+	          push(@newsidk,$sidk);	  
+	       }
       }
       ($sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,$sidk7,$sidk8,$sidk9,$sidk10,
        $sidk11,$sidk12,$sidk13,$sidk14)=@newsidk;
@@ -344,9 +294,8 @@ foreach $id(@id) {
     }
   }
     
+  # Now print out results
     
-  ##########################################################################################
-
   $momid=$kidmom_hash{$bid};
   $dadid=$kiddad_hash{$bid};
 
@@ -377,10 +326,10 @@ foreach $id(@id) {
 		$dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14, 
 		$sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,
 		$sidk7,$sidk8,$sidk9,$sidk10,$sidk11,$sidk12,$sidk13,$sidk14,
-		$remark1,$remark2,$remark3,$remark4,$remark5,$remark6,
-		$remark7,$remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
-		$remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,
-		$remarok7,$remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
+		$remark1,$remark2,$remark3,$remark4,$remark5,$remark6,$remark7,$remark8,
+    $remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
+		$remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
+    $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
 		$park1,$park2,$park3,$park4,$park5,$park6,$park7,
 		$park8,$park9,$park10,$park11,$park12,$park13,$park14);
 
