@@ -35,15 +35,13 @@ require generalsubs;
 
 $handlinkfile="input/combined_data_handlinked.tsv";
 $dinfile="input/sorteddeaths.tsv";
-$datafile="output/croatdata.txt";
+$croatdatafile="output/croatdata.txt";
 $b2dinfile="output/b2d.matches.txt";
-$newdatafile="output/croatdata2.txt";
 $detailfile="output/m2d.diag.txt";
 open (HAND, "<$handlinkfile") || die ("cant open"." $handlinkfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");
 open (B2D,"<$b2dinfile") || die ("cant open"." $b2dinfile");
-open (DATA, "<$datafile") || die ("cant open"." $datafile");
-open (FINAL,">$newdatafile") || die ("cant open "."$newdatafile");
+open (CROAT, "<$croatdatafile") || die ("cant open"." $croatdatafile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 
 print(DETAIL "Detail file for m2d.temp.pl\n");
@@ -83,7 +81,7 @@ foreach $line(<HAND>) {
 
   ($marid, $completed, $remhd, $remwd, $dom, $ageh, $agew, $vill, $fnw1, 
    $lnw1, $fnw2, $lnw2, $wfn, $wln, $hfn, $hln, $par, $hdid, $hdod, $haad, 
-	 $hpob, $hpor, $hpobur, $wdid, $wdod,  $waad, $wpob, $wpor, $wpobur, $remh
+	 $hpob, $hpor, $hpobur, $wdid, $wdod,  $waad, $wpob, $wpor, $wpobur, $remh,
 	 $doremh, $pohremh, $powremh, $remw, $doremw, $pohremw, $powremw, $dom2w,
 	 $dom2h, $hbid, $wbid, $hdob, $wdob, $ageh2, $agew2, $hdid2, $wdid2, $hdod2,
 	 $wdod2, $remh2, $remw2, $wdob2, $hdob2, $dobk1, $sexk1, $pobk1, $fngk1, 
@@ -102,7 +100,7 @@ foreach $line(<HAND>) {
 	 $domk9, $dobk10, $sexk10, $pobk10, $fngk10, $lngpk10, $dodk10, $idk10,
 	 $dod2k10, $didk10, $maridk10, $domk10, $dobk11, $sexk11, $pobk11, $fngk11,
 	 $lngpk11, $dodk11, $idk11, $dod2k11, $didk11, $maridk11, $domk11, $dobk12,
-	 $sexk12, $pobk12, $fngk12, $lngpk12, $dodk12, $idk12, $dod2k12, $didk12
+	 $sexk12, $pobk12, $fngk12, $lngpk12, $dodk12, $idk12, $dod2k12, $didk12,
 	 $maridk12, $domk12, $dobk13, $sexk13, $pobk13, $fngk13, $lngpk13, $dodk13,
 	 $idk13, $dod2k13, $didk13, $maridk13, $domk13, $dobk14, $sexk14, $pobk14,
 	 $fngk14, $lngpk14, $dodk14, $idk14, $dod2k14, $didk14, $maridk14, 
@@ -166,8 +164,9 @@ $m2dm_added = 0;
 $m2df_less = 0;
 $m2dm_less = 0;
 
+%croat=();
 
-foreach $line(<DATA>) {
+foreach $line(<CROAT>) {
   
   chop $line;
 
@@ -321,16 +320,25 @@ foreach $line(<DATA>) {
 		 $dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14, 
 		 $sidk1,$sidk2,$sidk3,$sidk4,$sidk5,$sidk6,
 		 $sidk7,$sidk8,$sidk9,$sidk10,$sidk11,$sidk12,$sidk13,$sidk14,
-		 $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,
-		 $remark7,$remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
-		 $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,
-		 $remarok7,$remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
+		 $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,$remark7,$remark8,
+		 $remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
+		 $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
+		 $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
 		 $park1,$park2,$park3,$park4,$park5,$park6,$park7,
 		 $park8,$park9,$park10,$park11,$park12,$park13,$park14);
   
-  
-  print(FINAL "$newline\n");
+	$croat{$bid}=$newline;
+}
 
+#close croatdata and then re-open
+close CROAT;
+open (CROAT,">$croatdatafile") || die ("cant open"." $croatdatafile");
+
+###print out croat data
+@bid =keys %croat;
+foreach $bid (@bid) {
+  $line=$croat{$bid};
+  print(CROAT "$line\n");
 }
 
 print("Section 2 Complete\n");
