@@ -214,12 +214,6 @@ foreach $line(@MAR) {
    $mlnhfull,$mlnwfull,$mlnwit1full,$mlnwit2full,$mnamef,$mnames,
    $mmatchflag)=split("\t", $line);
 
-  if($mid==4317) {
-
-    $bob=1;
-
-  }
-
   #create the empty mar_hash which will be my final output later
 
   $mar_hash{$mid}=join("\t", $mid, $na, $na, $na, $na, $na);
@@ -302,12 +296,6 @@ foreach $line(@BIRTH) {
    $bfng,$blng,$bpog) = split("\t",$line);
 
   #create this entry in the birth id hash
-
-  if($bid2==8919) {
-
-    $bob=1;
-
-  }
 
   if(&isnull($bid_hash{$bid2})) {
 
