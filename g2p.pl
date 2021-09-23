@@ -50,7 +50,7 @@ $minfile="input/sortedmars.tsv";
 $m2bfile="output/m2b.matches.tsv";
 $fulldatafile="output/fulldata.tsv";
 #$matchfile="output/g2p.matches.tsv";
-$gpfile="output/godparents.tsv";
+$gpfile="output/godparent_dates.tsv";
 #$prelimfile="output/g2p.match.prelim.txt";
 $detailfile="output/diagnostics/g2p.diag.txt";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
@@ -469,7 +469,7 @@ foreach $wit1(@link_wit1) {
     
     $g2p_hash{$mid}=join("\t",$mid,$bid2);
     #put in godparent hash
-    $gp_hash{$bid2}=join(" ",$gp_hash{$bid2},$myrdate);
+    $gp_hash{$bid2}=join("\t",$gp_hash{$bid2},$myrdate);
 
 
     $n_finalmatch_wit1++;

@@ -15,7 +15,20 @@ print "Getting last observed event.....";
 require generalsubs;
 
 $fulldatafile="output/fulldata.tsv";
+$gpfile="output/godparent_dates.tsv";
+
 open (FULL, "<$fulldatafile") || die ("cant open"." $fulldatafile");
+open (GP, "<$gpfile") || die ("cant open "."$gpfile");
+
+$replacedgp=0;
+
+%gp_hash=();
+
+foreach $gp (<GP>) {
+  chop $gp;
+  ($bid,$dates)=split("\t",$gp);
+  $gp_hash{$bid}=$dates;
+}
 
 %croat=();
 
@@ -51,7 +64,16 @@ foreach $line(<FULL>) {
    $ddate);
 
   $lastdate=&max(@dates);
+  
+  #check godparenting
+  @godparenting=split("\t",$gp_hash{$bid});
 
+  $lastgpevent=&max(@godparenting);
+  if($lastgpevent>$lastdate) {
+    $replacedgp++;
+    $lastdate=$lastgpevent;
+  }
+  
   #get first line of headers
   if($bid eq "bid") {
     $lastdate="loe"
