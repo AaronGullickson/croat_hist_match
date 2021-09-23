@@ -128,28 +128,28 @@ foreach $mar (<MARIN>) {
 
 	     push(@{$mar_hash {$wifekey}}, $mar);
 
-	#wives are more complicated because their last names are more
-	#flexible.  Since these marriages are first marriages, the
-	#$mlnw is likely the women's maiden name.  I also need to give
-	#here a key based on her marriage name, because that may be
-	#how she is identified later.
+	     #wives are more complicated because their last names are more
+	     #flexible.  Since these marriages are first marriages, the
+	     #$mlnw is likely the women's maiden name.  I also need to give
+	     #here a key based on her marriage name, because that may be
+	     #how she is identified later.
 
-	$wifekey_new=&stripwhite($mfnw).&stripwhite($mlnh)."f";
+	     $wifekey_new=&stripwhite($mfnw).&stripwhite($mlnh)."f";
 
-	push(@{$mar_hash {$wifekey_new}}, $mar);
+	     push(@{$mar_hash {$wifekey_new}}, $mar);
 
-	#It might be that $mlnw is not her maiden name.  In that case
-	#I also need to add another key possibility.
+	     #It might be that $mlnw is not her maiden name.  In that case
+	     #I also need to add another key possibility.
 
-	$maidenname=&stripwhite($maiden{$mid1});
+	      $maidenname=&stripwhite($maiden{$mid1});
 
-	if(&isnotnull($maidenname) && $maidenname ne &stripwhite($mlnw)) {
+	       if(&isnotnull($maidenname) && $maidenname ne &stripwhite($mlnw)) {
 
-	    $wifekey_maiden=&stripwhite($mfnw).&stripwhite($maidenname)."f";
+	          $wifekey_maiden=&stripwhite($mfnw).&stripwhite($maidenname)."f";
 
-	    push(@{$mar_hash {$wifekey_maiden}}, $mar);
+	          push(@{$mar_hash {$wifekey_maiden}}, $mar);
 
-	}
+	       }
 
     }
 
@@ -157,7 +157,7 @@ foreach $mar (<MARIN>) {
 
     if($mmstath eq "u" | $mmstatw eq "u") {
 
-	push(@remar, $mar);
+	     push(@remar, $mar);
 
     }
 
@@ -165,8 +165,6 @@ foreach $mar (<MARIN>) {
 
 
 #now run through remarriages and find links
-
-
 $cases_w=0;
 $multiple_w=0;
 $zero_w=0;
@@ -203,7 +201,7 @@ foreach $remar (@remar) {
 
     if(&is_na($rlastdate)) {
 
-	$rlastdate=0;
+	     $rlastdate=0;
 
     }
 
@@ -213,25 +211,25 @@ foreach $remar (@remar) {
 
     if($rmmstatw eq "u") {
 
-	$remar_notdone_w{$rmid}=1;
-	$cases_w++;
-	#make a key
+	     $remar_notdone_w{$rmid}=1;
+	     $cases_w++;
+	     #make a key
 
-	$key=&stripwhite($rmfnw).&stripwhite($rmlnw)."f";
+	     $key=&stripwhite($rmfnw).&stripwhite($rmlnw)."f";
 
-	@farray = @{$mar_hash {$key}};
+	      @farray = @{$mar_hash {$key}};
 
     }
 
 
     if($rmmstath eq "u") {
 
-	$remar_notdone_h{$rmid}=1;
-	$cases_h++;
+	     $remar_notdone_h{$rmid}=1;
+	     $cases_h++;
 
-	$key=&stripwhite($rmfnh).&stripwhite($rmlnh)."m";
+	     $key=&stripwhite($rmfnh).&stripwhite($rmlnh)."m";
 
-	@marray = @{$mar_hash {$key}};
+	     @marray = @{$mar_hash {$key}};
 
     }
 
