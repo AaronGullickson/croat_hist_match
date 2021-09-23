@@ -48,8 +48,8 @@ foreach $line (<M2B>) {
 
   chop $line;
 
-  ($mid,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,$idk9,
-   $idk10,$idk11,$idk12,$idk13,$idk14)=split("\t", $line);
+  ($mid,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,
+  $idk9,$idk10,$idk11,$idk12,$idk13,$idk14)=split("\t", $line);
 
   $m2bhash{$mid}=$line;
 
@@ -57,8 +57,8 @@ foreach $line (<M2B>) {
 
 foreach $line(<BIRIN>) {
 
-  ($bpar,$bid1,$bid2,$uni,$bdate,$byyy,$bmm,$bdd,$bfn,$bsx,$bfnf,$blnf,$bfnm,$blnm,$bpob,
-   $bfng,$blng,$bpog) = split("\t",$line);
+  ($bpar,$bid1,$bid2,$uni,$bdate,$byyy,$bmm,$bdd,$bfn,$bsx,$bfnf,$blnf,$bfnm,
+  $blnm,$bpob,$bfng,$blng,$bpog) = split("\t",$line);
 
   $bid2=~s/\s//g;
 
@@ -110,11 +110,11 @@ foreach $mar (<MARIN>) {
 
     if($mmstath ne "u") {
 
-	$firstmar_notdone_h{$mid}=1;
+	     $firstmar_notdone_h{$mid}=1;
 
-	$husbkey=&stripwhite($mfnh).&stripwhite($mlnh)."m";
+	     $husbkey=&stripwhite($mfnh).&stripwhite($mlnh)."m";
 
-	push(@{$mar_hash {$husbkey}}, $mar);
+	     push(@{$mar_hash {$husbkey}}, $mar);
 
     }
 
@@ -122,11 +122,11 @@ foreach $mar (<MARIN>) {
 
     if($mmstatw ne "u") {
 
-	$firstmar_notdone_w{$mid}=1;
+	     $firstmar_notdone_w{$mid}=1;
 
-	$wifekey=&stripwhite($mfnw).&stripwhite($mlnw)."f";
+	     $wifekey=&stripwhite($mfnw).&stripwhite($mlnw)."f";
 
-	push(@{$mar_hash {$wifekey}}, $mar);
+	     push(@{$mar_hash {$wifekey}}, $mar);
 
 	#wives are more complicated because their last names are more
 	#flexible.  Since these marriages are first marriages, the
@@ -182,18 +182,19 @@ foreach $remar (@remar) {
     @farray=();
     @marray=();
 
-    ($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,$rmmstath,
-     $rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,$rmfnwrel,
-     $rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,$rmpowit2,
-     $rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,$rmnames,
-     $rmmatchflag)=split("\t", $remar);
+    ($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,
+    $rmmstath,$rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,
+    $rmfnwrel,$rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,
+    $rmpowit2,$rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,
+    $rmnames,$rmmatchflag)=split("\t", $remar);
 
     $remar_hash{$rmid}=$remar;
 
     #get the life history for this remarriage
 
-    ($junk,$rlastdate,$rnumkids,$ridk1,$ridk2,$ridk3,$ridk4,$ridk5,$ridk6,$ridk7,$ridk8,$ridk9,
-     $ridk10,$ridk11,$ridk12,$ridk13,$ridk14)=split("\t",$m2bhash{$rmid});
+    ($junk,$rlastdate,$rnumkids,$ridk1,$ridk2,$ridk3,$ridk4,$ridk5,$ridk6,
+    $ridk7,$ridk8,$ridk9,$ridk10,$ridk11,$ridk12,$ridk13,
+    $ridk14)=split("\t",$m2bhash{$rmid});
 
     #if there are no kids then make $rlastdate early enough that it
     #won't affect matching (I don't want to disqualify older women
@@ -247,8 +248,8 @@ foreach $remar (@remar) {
 	 $mmatchflag)=split("\t", $link);
 
 	#get the life history for this marriage
-	($junk,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,$idk9,
-	 $idk10,$idk11,$idk12,$idk13,$idk14)=split("\t",$m2bhash{$mid});
+	($junk,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,
+  $idk9,$idk10,$idk11,$idk12,$idk13,$idk14)=split("\t",$m2bhash{$mid});
 
 	#if lastdate is missing, then replace it with date of
 	#marriage, because this will be used later in the scoring to
@@ -484,11 +485,11 @@ foreach $match (@matchesw) {
 
 	$rmar=$remar_hash{$rmid};
 
-	($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,$rmmstath,
-	 $rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,$rmfnwrel,
-	 $rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,$rmpowit2,
-	 $rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,$rmnames,
-	 $rmmatchflag)=split("\t", $rmar);
+	($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,
+  $rmmstath,$rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,
+  $rmfnwrel,$rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,
+  $rmpowit2,$rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,
+  $rmnames,$rmmatchflag)=split("\t", $rmar);
 
 	$wifekey=&stripwhite($rmfnw).&stripwhite($rmlnw)."f";
 
@@ -557,11 +558,11 @@ foreach $match (@matchesh) {
 
 	$rmar=$remar_hash{$rmid};
 
-	($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,$rmmstath,
-	 $rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,$rmfnwrel,
-	 $rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,$rmpowit2,
-	 $rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,$rmnames,
-	 $rmmatchflag)=split("\t", $rmar);
+	($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,
+  $rmmstath,$rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,
+  $rmfnwrel,$rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,
+  $rmpowit2,$rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,
+  $rmnames,$rmmatchflag)=split("\t", $rmar);
 
 	$husbkey=&stripwhite($rmfnh).&stripwhite($rmlnh)."m";
 
@@ -640,8 +641,8 @@ for($i=2;$i<5;$i++) {
 		 $mmatchflag)=split("\t", $link);
 
 		#get the life history for this marriage
-		($junk,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,$idk9,
-		 $idk10,$idk11,$idk12,$idk13,$idk14)=split("\t",$m2bhash{$mid});
+		($junk,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,
+    $idk9,$idk10,$idk11,$idk12,$idk13,$idk14)=split("\t",$m2bhash{$mid});
 
 		#if lastdate is missing, then replace it with date of
 		#marriage, because this will be used later in the scoring to
@@ -837,11 +838,11 @@ for($i=2;$i<5;$i++) {
 
 	    $rmar=$remar_hash{$rmid};
 
-	    ($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,$rmmstath,
-	     $rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,$rmfnwrel,
-	     $rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,$rmpowit2,
-	     $rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,$rmnames,
-	     $rmmatchflag)=split("\t", $rmar);
+	    ($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,
+      $rmmstath,$rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,
+      $rmfnwrel,$rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,
+      $rmpowit2,$rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,
+      $rmnames,$rmmatchflag)=split("\t", $rmar);
 
 	    $wifekey=&stripwhite($rmfnw).&stripwhite($rmlnw)."f";
 
@@ -908,11 +909,11 @@ for($i=2;$i<5;$i++) {
 
 	    $rmar=$remar_hash{$rmid};
 
-	    ($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,$rmmstath,
-	     $rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,$rmfnwrel,
-	     $rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,$rmpowit2,
-	     $rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,$rmnames,
-	     $rmmatchflag)=split("\t", $rmar);
+	    ($rmpar,$rmi,$rmid,$rmuni,$rmyrdate,$rmyyy,$rmmm,$rmdd,$rmfnh,$rmlnh,
+      $rmmstath,$rmageh,$rmpoh,$rmfnhfa,$rmfnw,$rmlnw,$rmmstatw,$rmagew,$rmpow,
+      $rmfnwrel,$rmtypwrel,$rmfnwit1,$rmlnwit1,$rmpowit1,$rmfnwit2,$rmlnwit2,
+      $rmpowit2,$rmlnhfull,$rmlnwfull,$rmlnwit1full,$rmlnwit2full,$rmnamef,
+      $rmnames,$rmmatchflag)=split("\t", $rmar);
 
 	    $husbkey=&stripwhite($mfnh).&stripwhite($mlnh)."m";
 
