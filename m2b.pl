@@ -159,7 +159,7 @@ open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 
 #output files
-$matchfile="output/m2b.matches.txt";
+$matchfile="output/m2b.matches.tsv";
 #$prelimfile="output/m2b.match.prelim.txt";
 $detailfile="output/diagnostics/m2b.diag.txt";
 #open (PRELIM, ">$prelimfile") || die ("cant open"." $prelimfile");
