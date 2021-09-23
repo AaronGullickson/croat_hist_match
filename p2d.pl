@@ -165,12 +165,6 @@ foreach $line(<MARIN>) {
    $mtypwrel,$mfnwit1,$mlnwit1,$mpowit1,$mfnwit2,$mlnwit2,$mpowit2,
    $mlnhfull,$mlnwfull,$mlnwit1full,$mlnwit2full,$mnamef,$mnames,
    $mmatchflag)=split("\t", $line);
-
-  if($mid==22999) {
-
-    $bob=1;
-
-  }
   
   $mid=~s/\s//g;
   $mfnw=~s/\s//g;
