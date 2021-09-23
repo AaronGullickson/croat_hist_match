@@ -19,14 +19,14 @@ print("m2m Program Starting\n");
 #INPUT
 $binfile="input/sortedbirths.tsv";
 $minfile="input/sortedmars.tsv";
-$m2binfile="output/m2b.matches.txt";
-$b2minfile="output/b2m.mmatches.txt";
+$m2binfile="output/m2b.matches.tsv";
+$b2minfile="output/b2m.mmatches.tsv";
 open (B2M,"<$b2minfile") || die ("cant open"." $b2minfile");
 open (M2B,"<$m2binfile") || die ("cant open"." $m2binfile");
 open (BIRIN, "<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 
-$matchfile="output/m2m.matches.txt";
+$matchfile="output/m2m.matches.tsv";
 $detailfile="output/diagnostics/m2m.diag.txt";
 open (FINAL,">$matchfile") || die ("cant open "."$matchfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");

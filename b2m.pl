@@ -148,19 +148,16 @@ $minfile="input/sortedmars.tsv";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 
-$m2binfile="output/m2b.matches.txt";
-$prelimmatchfile="output/b2m.match.prelim.txt";
-$sortfile="output/b2m.prelim.sorted.txt";
-$finalbmatchfile="output/b2m.bmatches.txt";
-$finalmmatchfile="output/b2m.mmatches.txt";
+$m2binfile="output/m2b.matches.tsv";
+#$prelimmatchfile="output/b2m.match.prelim.txt";
+$finalbmatchfile="output/b2m.bmatches.tsv";
+$finalmmatchfile="output/b2m.mmatches.tsv";
 $detailfile="output/diagnostics/b2m.diag.txt";
-$tiesfile="output/b2m.ties.txt";
 open (M2B, "<$m2binfile") || die ("cant open $m2binfile");
-open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
+#open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
 open (FINALB,">$finalbmatchfile") || die ("cant open "."$finalbmatchfile");
 open (FINALM,">$finalmmatchfile") || die ("cant open "."$finalmmatchfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
-open (TIES, ">$tiesfile") || die ("cant open "."$tiesfile");
 
 print ("Program name is b2m.pl\n");
 
@@ -428,7 +425,7 @@ foreach $line(@BIRTH) {
 
   $unmatched=$unmatched+1;
 
-  printf(PRELIM "%6d\t %s\t %s\t %s\t %s\n", $bid2, $na, $na, $na, $na);
+  #printf(PRELIM "%6d\t %s\t %s\t %s\t %s\n", $bid2, $na, $na, $na, $na);
 
     $linkline=join("\t", 0,$bid2,$na,$na, $na, $na);
 
@@ -444,7 +441,7 @@ foreach $line(@BIRTH) {
 
       ($bid, $mid, $score, $age, $sex)=split("\t", $ref);
 
-      printf(PRELIM "%6d\t %6d\t %6.3f\t %6.3f %s\n", $bid, $mid, $score, $age, $sex);
+      #printf(PRELIM "%6d\t %6d\t %6.3f\t %6.3f %s\n", $bid, $mid, $score, $age, $sex);
 
       $linkline=join("\t",$score, $bid, $mid, $age, $sex);
 
@@ -724,8 +721,6 @@ $percent_matched = 100*$matched/$birth_length;
 print(DETAIL "As a percentage of all first births, this is "."$percent_matched"."%\n\n");
 
 print(DETAIL "The average number of matches for births that were matched is "."$averagematchlength\n\n");
-
-print(DETAIL "There were $ties scoring ties\n\n");
 
 print(DETAIL "Number of births matched in final links is "."$births_matched\n");
 $percent_matched = 100*$births_matched/$birth_length;

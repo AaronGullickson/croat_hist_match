@@ -92,9 +92,9 @@ $agevalues = join ("\t",@agevalues);
 $binfile="input/sortedbirths.tsv";
 $dinfile="input/sorteddeaths.tsv";
 $marinfile="input/sortedmars.tsv";
-$b2minfile="output/b2m.mmatches.txt";
-$m2binfile="output/m2b.matches.txt";
-$m2minfile="output/m2m.matches.txt";
+$b2minfile="output/b2m.mmatches.tsv";
+$m2binfile="output/m2b.matches.tsv";
+$m2minfile="output/m2m.matches.tsv";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");
 open (MARIN,"<$marinfile") || die ("cant open"." $marinfile");
@@ -102,16 +102,16 @@ open (B2M,"<$b2minfile") || die ("cant open "."  $b2minfile");
 open (M2B,"<$m2binfile") || die ("cant open "."  $m2binfile");
 open (M2M,"<$m2minfile") || die ("cant open "."  $m2minfile");
 
-$prelimmatchfile="output/b2d.match.prelim.txt";
-$sortfile="output/b2d.prelim.sorted.txt";
-$finalmatchfile="output/b2d.matches.txt";
+#$prelimmatchfile="output/b2d.match.prelim.txt";
+#$sortfile="output/b2d.prelim.sorted.txt";
+$finalmatchfile="output/b2d.matches.tsv";
 $detailfile="output/diagnostics/b2d.diag.txt";
-$tiesfile="output/b2d.ties.txt";
-open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
-open (SORT,">$sortfile") || die ("cant open "."$sortfile");
+#$tiesfile="output/b2d.ties.txt";
+#open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
+#open (SORT,">$sortfile") || die ("cant open "."$sortfile");
 open (FINAL,">$finalmatchfile") || die ("cant open "."$finalmatchfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
-open (TIES, ">$tiesfile") || die ("cant open "."$tiesfile");
+#open (TIES, ">$tiesfile") || die ("cant open "."$tiesfile");
 
 print ("Program name is b2d.pl\n");
 
@@ -451,7 +451,7 @@ foreach $line(@BIRTH) {
 
     $unmatched=$unmatched+1;
 
-    printf(PRELIM "%6d\t %s\t %s\t %s\t %s\n", $bid2, $na, $na, $na, $na);
+    #printf(PRELIM "%6d\t %s\t %s\t %s\t %s\n", $bid2, $na, $na, $na, $na);
 
     $linkline=join("\t", 0,$bid2,$na,$na,$na);
 
@@ -467,7 +467,7 @@ foreach $line(@BIRTH) {
 
       ($bid, $did, $score, $age, $ddate)=split("\t", $ref);
 
-      printf(PRELIM "%6d\t %6d\t %6.3f\t %6.3f %6.6f\n", $bid, $did, $score, $age, $ddate);
+      #printf(PRELIM "%6d\t %6d\t %6.3f\t %6.3f %6.6f\n", $bid, $did, $score, $age, $ddate);
 
       $linkline=join("\t",$score, $bid, $did, $age, $ddate);
 
@@ -522,7 +522,7 @@ $ties=0;
 
 foreach $line(@links) {
 
-  print(SORT "$line\n");
+  #print(SORT "$line\n");
 
   ($score, $bid, $did, $age, $ddate)=split("\t", $line);
 
@@ -555,7 +555,7 @@ foreach $line(@links) {
 
       $ties = $ties+1;
 
-      print(TIES "There is a birth id tie at $line\n");
+      #print(TIES "There is a birth id tie at $line\n");
 
     }
 
