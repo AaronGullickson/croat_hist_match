@@ -53,13 +53,13 @@ print("Loading files.....");
 $binfile="input/sortedbirths.tsv";
 $minfile="input/sortedmars.tsv";
 $dinfile="input/sorteddeaths.tsv";
-$b2dinfile="output/b2d.matches.txt";
-$b2minfile="output/b2m.mmatches.txt";
-$m2binfile="output/m2b.matches.txt";
-$m2minfile="output/m2m.matches.txt";
-$mardatafile="output/croatmar.txt";
-$inddatafile="output/croatind.txt";
-$fulldatafile="output/croatdata.txt";
+$b2dinfile="output/b2d.matches.tsv";
+$b2minfile="output/b2m.mmatches.tsv";
+$m2binfile="output/m2b.matches.tsv";
+$m2minfile="output/m2m.matches.tsv";
+#$mardatafile="output/croatmar.txt";
+#$inddatafile="output/croatind.txt";
+$fulldatafile="output/fulldata.tsv";
 $detailfile="output/diagnostics/combine.diag.txt";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$minfile") || die ("cant open"." $minfile");
@@ -68,17 +68,12 @@ open (B2D,"<$b2dinfile") || die ("cant open"." $b2dinfile");
 open (B2M,"<$b2minfile") || die ("cant open"." $b2minfile");
 open (M2B, "<$m2binfile") || die ("cant open $m2binfile");
 open (M2M, "<$m2minfile") || die ("cant open $m2minfile");
-open (MAR, ">$mardatafile") || die ("cant open $mardatafile");
-open (IND, ">$inddatafile") || die ("cant open $inddatafile");
+#open (MAR, ">$mardatafile") || die ("cant open $mardatafile");
+#open (IND, ">$inddatafile") || die ("cant open $inddatafile");
 open (DATA, ">$fulldatafile") || die ("cant open $fulldatafile");
 open (DETAIL, ">$detailfile") || die ("cant open $detailfile");
 
-#two more files for checking on the maximum number of children and marriages
-
-open (NUMMAR, ">nummar.txt");
-open (KIDS, ">kids.txt");
-
-print(DETAIL "Detail file for createdatasets.pl\n");
+print(DETAIL "Detail file for create_initial_dataset.pl\n");
 print(DETAIL "Program started on "."$daterun "."$yrrun"." at "."$timerun\n\n"); 
 
 print("Done\n");
@@ -265,7 +260,7 @@ print("Beginning Section 2: Building marriage data set\n");
 
 #print out dimension names
 
-print(MAR "mid\thbid\twbid\tmyrdate\tidk1\tidk2\tidk3\tidk4\tidk5\tidk6\tidk7\tidk8\tidk9\tidk10\tidk11\tidk12\tidk13\tidk14\tdobk1\tdobk2\tdobk3\tdobk4\tdobk5\tdobk6\tdobk7\tdobk8\tdobk9\tdobk10\tdobk11\tdobk12\tdobk13\tdobk14\twifefirstmar\thusbfirstmar\n");
+#print(MAR "mid\thbid\twbid\tmyrdate\tidk1\tidk2\tidk3\tidk4\tidk5\tidk6\tidk7\tidk8\tidk9\tidk10\tidk11\tidk12\tidk13\tidk14\tdobk1\tdobk2\tdobk3\tdobk4\tdobk5\tdobk6\tdobk7\tdobk8\tdobk9\tdobk10\tdobk11\tdobk12\tdobk13\tdobk14\twifefirstmar\thusbfirstmar\n");
 
 #loop through m2b so I can catch the imputed marriages
 
@@ -437,7 +432,7 @@ print("Beginning Section 3: Building individual dataset\n");
 
 #write out dimension names
 
-print(IND "bid\tbdate\tsex\tmotherid\tfatherid\tmid1\tmid2\tmid3\tmid4\tmid5\tmdate1\tmdate2\tmdate3\tmdate4\tmdate5\tdid\tddate\n");
+#print(IND "bid\tbdate\tsex\tmotherid\tfatherid\tmid1\tmid2\tmid3\tmid4\tmid5\tmdate1\tmdate2\tmdate3\tmdate4\tmdate5\tdid\tddate\n");
 
 @keys=keys %birth_hash;
 
@@ -536,8 +531,6 @@ foreach $key(@keys) {
     }
 
   }
-
-  print(NUMMAR "$num_mar\n");
 
   ($mid1, $mid2, $mid3, $mid4, $mid5)=@marriages;
   ($mdate1, $mdate2, $mdate3, $mdate4, $mdate5)=@mardate;
@@ -861,8 +854,6 @@ foreach $key(@keys) {
     }
     
   }
-
-  print(KIDS "$total_kids\n");
   
   ($idk1,$idk2,$idk3,$idk4,$idk5,$idk6,
    $idk7,$idk8,$idk9,$idk10,$idk11,$idk12,$idk13,$idk14)=@allkids;

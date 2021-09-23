@@ -7,10 +7,10 @@ require generalsubs;
 #############
 # INPUT/OUTPUT
 
-$croatdatafile="output/croatdata.txt";
-$m2mfile="output/m2m.matches.txt";
+$fulldatafile="output/fulldata.tsv";
+$m2mfile="output/m2m.matches.tsv";
 $detailfile="output/diagnostics/correctremar.diag.txt";
-open (CROAT,"<$croatdatafile") || die ("cant open"." $croatdatafile");
+open (FULL,"<$fulldatafile") || die ("cant open"." $fulldatafile");
 open (M2M,"<$m2mfile") || die ("cant open"." $m2mfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 
@@ -20,7 +20,7 @@ open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 ##########################
 # Section 1: Read in full data and set up hashes
 
-foreach $line(<CROAT>) {
+foreach $line(<FULL>) {
 
   chop $line;
 
@@ -115,12 +115,12 @@ foreach $m2m(<M2M>) {
 
 }
 
-close(CROAT);
+close(FULL);
 
 ##################
 #  Section 2: Fix pointers and print corrected line
 
-open (CROAT,">$croatdatafile") || die ("cant open"." $croatdatafile");
+open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
 
 @id = keys %croat;
 $dadreplaced=0;
@@ -142,8 +142,8 @@ foreach $id(@id) {
    $sidk7,$sidk8,$sidk9,$sidk10,$sidk11,$sidk12,$sidk13,$sidk14,
    $remark1,$remark2,$remark3,$remark4,$remark5,$remark6,
    $remark7,$remark8,$remark9,$remark10,$remark11,$remark12,$remark13,$remark14,
-   $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,
-   $remarok7,$remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
+   $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
+   $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $croat{$id});
 
@@ -335,8 +335,8 @@ foreach $id(@id) {
 		$park1,$park2,$park3,$park4,$park5,$park6,$park7,
 		$park8,$park9,$park10,$park11,$park12,$park13,$park14);
 
-  print(CROAT "$newline\n");
+  print(FULL "$newline\n");
 
 }
 
-print(DeTAIL "$dadreplaced father and $momreplaced mother pointers were updated\n");
+print(DETAIL "$dadreplaced father and $momreplaced mother pointers were updated\n");

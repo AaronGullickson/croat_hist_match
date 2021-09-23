@@ -14,12 +14,12 @@ print "Getting last observed event.....";
 
 require generalsubs;
 
-$croatdatafile="output/croatdata.txt";
-open (CROAT, "<$croatdatafile") || die ("cant open"." $croatdatafile");
+$fulldatafile="output/fulldata.tsv";
+open (FULL, "<$fulldatafile") || die ("cant open"." $fulldatafile");
 
 %croat=();
 
-foreach $line(<CROAT>) {
+foreach $line(<FULL>) {
 
   chop $line;
 
@@ -80,13 +80,13 @@ foreach $line(<CROAT>) {
   
 }
 
-close FINAL;
-open (CROAT,">$croatdatafile") || die ("cant open"." $croatdatafile");
+close FULL;
+open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
 
 @bid =keys %croat;
 foreach $bid (@bid) {
   $line=$croat{$bid};
-  print(CROAT "$line\n");
+  print(FULL "$line\n");
 }
 
 print "done\n\n";

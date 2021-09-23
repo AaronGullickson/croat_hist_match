@@ -35,13 +35,13 @@ require generalsubs;
 
 $handlinkfile="input/combined_data_handlinked.tsv";
 $dinfile="input/sorteddeaths.tsv";
-$croatdatafile="output/croatdata.txt";
-$b2dinfile="output/b2d.matches.txt";
+$fulldatafile="output/fulldata.tsv";
+$b2dinfile="output/b2d.matches.tsv";
 $detailfile="output/diagnostics/m2d.diag.txt";
 open (HAND, "<$handlinkfile") || die ("cant open"." $handlinkfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");
 open (B2D,"<$b2dinfile") || die ("cant open"." $b2dinfile");
-open (CROAT, "<$croatdatafile") || die ("cant open"." $croatdatafile");
+open (FULL, "<$fulldatafile") || die ("cant open"." $fulldatafile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 
 print(DETAIL "Detail file for m2d.temp.pl\n");
@@ -166,7 +166,7 @@ $m2dm_less = 0;
 
 %croat=();
 
-foreach $line(<CROAT>) {
+foreach $line(<FULL>) {
   
   chop $line;
 
@@ -331,14 +331,14 @@ foreach $line(<CROAT>) {
 }
 
 #close croatdata and then re-open
-close CROAT;
-open (CROAT,">$croatdatafile") || die ("cant open"." $croatdatafile");
+close FULL;
+open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
 
-###print out croat data
+###print out full data
 @bid =keys %croat;
 foreach $bid (@bid) {
   $line=$croat{$bid};
-  print(CROAT "$line\n");
+  print(FULL "$line\n");
 }
 
 print("Section 2 Complete\n");

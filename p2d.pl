@@ -43,19 +43,19 @@ $na="NA";
 $binfile="input/sortedbirths.tsv";
 $marinfile="input/sortedmars.tsv";
 $dinfile="input/sorteddeaths.tsv";
-$b2dinfile="output/b2d.matches.txt";
-$m2binfile="output/m2b.matches.txt";
-$croatdatafile="output/croatdata.txt";
-$prelimmatchfile="output/p2d.match.prelim.txt";
-$finalmatchfile="output/p2d.matches.txt";
+$b2dinfile="output/b2d.matches.tsv";
+$m2binfile="output/m2b.matches.tsv";
+$fulldatafile="output/fulldata.tsv";
+#$prelimmatchfile="output/p2d.match.prelim.txt";
+$finalmatchfile="output/p2d.matches.tsv";
 $detailfile="output/diagnostics/p2d.diag.txt";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$marinfile") || die ("cant open"." $marinfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");
 open (B2D,"<$b2dinfile") || die ("cant open"." $b2dinfile");
 open (M2B,"<$m2binfile") || die ("cant open "."  $m2binfile");
-open (CROAT,"<$croatdatafile") || die ("cant open"." $croatdatafile");
-open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
+open (FULL,"<$fulldatafile") || die ("cant open"." $fulldatafile");
+#open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
 open (FINAL,">$finalmatchfile") || die ("cant open "."$finalmatchfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 
@@ -215,7 +215,7 @@ $possible=0;
 $prelim_match=0;
 %croat=();
 
-foreach $line (<CROAT>) {
+foreach $line (<FULL>) {
 
   chop $line;
 
@@ -374,7 +374,7 @@ foreach $line (<CROAT>) {
 
       $unmatched++;
       
-      printf(PRELIM "%6d\t %s\t %s\t %s\t %s\n", $bid, $na, $na, $na);
+      #printf(PRELIM "%6d\t %s\t %s\t %s\t %s\n", $bid, $na, $na, $na);
       
     } else {
 
@@ -384,7 +384,7 @@ foreach $line (<CROAT>) {
 	
 	($bid, $did, $score, $ddate, $dif, $raad)=split("\t", $ref);
 	
-	printf(PRELIM "%6d\t %6d\t %6.3f\t %6.6f\n", $bid, $did, $score, $ddate);
+	#printf(PRELIM "%6d\t %6d\t %6.3f\t %6.6f\n", $bid, $did, $score, $ddate);
 	
 	$linkline=join("\t",$score, $bid, $did, $ddate, $dif, $raad);
 
@@ -404,8 +404,8 @@ foreach $line (<CROAT>) {
 
 #close and reopen croatdata
 
-close CROAT;
-open (CROAT,">$croatdatafile") || die ("cant open"." $croatdatafile");
+close FULL;
+open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
 
 print("Part III: Sorting and Final Linking\n");
 
@@ -504,7 +504,7 @@ foreach $bid (@bid) {
 
   $line=$croat{$bid};
 
-  print(CROAT "$line\n");
+  print(FULL "$line\n");
 
 }
 
