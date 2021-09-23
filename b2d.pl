@@ -393,8 +393,9 @@ foreach $line(@BIRTH) {
 
   foreach $ref(@array) {
 
-    ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,$daged,
-     $fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,$dfnh)=split("\t", $ref);
+    ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,
+		$dagem,$daged,$fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,
+		$dfnh)=split("\t", $ref);
 
     #score this match
 
@@ -402,7 +403,7 @@ foreach $line(@BIRTH) {
     #link.  Let it happen up to one week before a birthdate because
     #baptisms often take place only on the sunday after the birth.
 
-    if($bdate>$ddate || $mdate>$ddate || ($lastdate-8/365)>$ddate) {#  || $remarsp_date<$ddate) {
+    if($bdate>$ddate || $mdate>$ddate || ($lastdate-8/365)>$ddate) {
 
       $score=0;
 
