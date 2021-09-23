@@ -159,8 +159,9 @@ foreach $line(@DEATH) {
 
   #split the line up into scalars
 
-  ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,$daged,
-   $fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,$dfnh)=split("\t", $line);
+  ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,
+	$daged,$fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,
+	$dfnh)=split("\t", $line);
 
   #create a key from first name, last
 
@@ -223,12 +224,6 @@ foreach $line(<B2M>) {
 
   ($mid, $hbid, $wbid, $hage, $wage, $score)=split("\t", $line);
 
-  if($wbid==176) {
-
-    $bob=1;
-
-  }
-
   $mid=&stripwhite($mid);
   $hbid=&stripwhite($hbid);
   $wbid=&stripwhite($wbid);
@@ -284,12 +279,6 @@ foreach $line(@BIRTH) {
   #create this entry in the birth id hash
 
   $bid2=~s/\s//g;
-
-  if($bid2==18971) {
-
-    $bob=1;
-
-  }
 
   if(&isnull($bid_hash{$bid2})) {
 
@@ -362,26 +351,6 @@ foreach $line(@BIRTH) {
 
   }
 
-  #now check the lastdate for men in remarriages but do not get new names
-
-#  if($bsx=~m/m/i & &isnot_na($mid)) {
-#
-#      $bid2=~s/\s//g;
-#
-#      $remar=$remar_hash{$mid.$bsx};
-#
-#      while(&isnotnull($remar)) {
-#
-#	  $mid=$remar;
-#
-#	  $lastdate=$lastdate_hash{$remar};
-#
-#	  $remar=$remar_hash{$remar.$bsx};
-#
-#      }
-
-#  }
-
   #If spouse moves on to a remarriage, then this person cannot die after remarriage
 
   if($bsx eq "f") {
@@ -426,13 +395,6 @@ foreach $line(@BIRTH) {
 
     ($dpar,$did1,$did2,$duni,$ddate,$dyyy,$dmm,$ddd,$dfn,$dsx,$dln,$dagey,$dagem,$daged,
      $fnr,$dtpr,$dpob,$dpor,$dpbur,$dmst,$lndu,$dfnf,$dfnh)=split("\t", $ref);
-
-    if($did2==67656 || $did2==32357) {
-
-      $bob=1;
-
-    }
-
 
     #score this match
 
