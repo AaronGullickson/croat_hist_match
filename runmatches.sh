@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm -r output/*
+mkdir output/diagnostics/
 
 perl m2b.pl
 perl b2m.pl

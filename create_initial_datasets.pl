@@ -60,7 +60,7 @@ $m2minfile="output/m2m.matches.txt";
 $mardatafile="output/croatmar.txt";
 $inddatafile="output/croatind.txt";
 $fulldatafile="output/croatdata.txt";
-$detailfile="output/combine.diag.txt";
+$detailfile="output/diagnostics/combine.diag.txt";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");

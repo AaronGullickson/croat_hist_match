@@ -37,7 +37,7 @@ $handlinkfile="input/combined_data_handlinked.tsv";
 $dinfile="input/sorteddeaths.tsv";
 $croatdatafile="output/croatdata.txt";
 $b2dinfile="output/b2d.matches.txt";
-$detailfile="output/m2d.diag.txt";
+$detailfile="output/diagnostics/m2d.diag.txt";
 open (HAND, "<$handlinkfile") || die ("cant open"." $handlinkfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");
 open (B2D,"<$b2dinfile") || die ("cant open"." $b2dinfile");

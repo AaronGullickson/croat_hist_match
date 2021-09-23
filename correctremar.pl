@@ -9,8 +9,10 @@ require generalsubs;
 
 $croatdatafile="output/croatdata.txt";
 $m2mfile="output/m2m.matches.txt";
+$detailfile="output/diagnostics/correctremar.diag.txt";
 open (CROAT,"<$croatdatafile") || die ("cant open"." $croatdatafile");
 open (M2M,"<$m2mfile") || die ("cant open"." $m2mfile");
+open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 
 %croat=();
 %id2m_hash=();
@@ -337,4 +339,4 @@ foreach $id(@id) {
 
 }
 
-print("$dadreplaced father and $momreplaced mother pointers were updated\n");
+print(DeTAIL "$dadreplaced father and $momreplaced mother pointers were updated\n");

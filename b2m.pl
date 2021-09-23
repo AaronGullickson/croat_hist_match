@@ -153,7 +153,7 @@ $prelimmatchfile="output/b2m.match.prelim.txt";
 $sortfile="output/b2m.prelim.sorted.txt";
 $finalbmatchfile="output/b2m.bmatches.txt";
 $finalmmatchfile="output/b2m.mmatches.txt";
-$detailfile="output/b2m.diag.txt";
+$detailfile="output/diagnostics/b2m.diag.txt";
 $tiesfile="output/b2m.ties.txt";
 open (M2B, "<$m2binfile") || die ("cant open $m2binfile");
 open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");

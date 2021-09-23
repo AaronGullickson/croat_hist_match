@@ -105,7 +105,7 @@ open (M2M,"<$m2minfile") || die ("cant open "."  $m2minfile");
 $prelimmatchfile="output/b2d.match.prelim.txt";
 $sortfile="output/b2d.prelim.sorted.txt";
 $finalmatchfile="output/b2d.matches.txt";
-$detailfile="output/b2d.diag.txt";
+$detailfile="output/diagnostics/b2d.diag.txt";
 $tiesfile="output/b2d.ties.txt";
 open (PRELIM,">$prelimmatchfile") || die ("cant open "."$prelimmatchfile");
 open (SORT,">$sortfile") || die ("cant open "."$sortfile");

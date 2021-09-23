@@ -48,7 +48,7 @@ $m2binfile="output/m2b.matches.txt";
 $croatdatafile="output/croatdata.txt";
 $prelimmatchfile="output/p2d.match.prelim.txt";
 $finalmatchfile="output/p2d.matches.txt";
-$detailfile="output/p2d.diag.txt";
+$detailfile="output/diagnostics/p2d.diag.txt";
 open (BIRIN,"<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$marinfile") || die ("cant open"." $marinfile");
 open (DTHIN,"<$dinfile") || die ("cant open"." $dinfile");

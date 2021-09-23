@@ -27,7 +27,7 @@ open (BIRIN, "<$binfile") || die ("cant open"." $binfile");
 open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 
 $matchfile="output/m2m.matches.txt";
-$detailfile="output/m2m.diag.txt";
+$detailfile="output/diagnostics/m2m.diag.txt";
 open (FINAL,">$matchfile") || die ("cant open "."$matchfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
 

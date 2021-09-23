@@ -161,7 +161,7 @@ open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 #output files
 $matchfile="output/m2b.matches.txt";
 $prelimfile="output/m2b.match.prelim.txt";
-$detailfile="output/m2b.diag.txt";
+$detailfile="output/diagnostics/m2b.diag.txt";
 $sortfile="output/m2b.sorted.txt";
 $namesfile="output/m2b.names.txt";
 $kinfile="output/m2b.kin.txt";
