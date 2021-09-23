@@ -6,22 +6,12 @@
 ################################
 
 ###############################################
-#
-# This is a temporary solution to our problem
-# in linking m2d.  We can't link them very well
-# because there are very few ages given at 
-# marriage, which means we don't have anything
-# to break ties with.  We may be able to solve 
-# this problem later but for now we are just going
-# to accept marcia's links where they don't conflict
-# with our own. So I need to write a script 
-# that loops through combodat and assigns the link
-# if it isn't conflicted with some data for that person 
-# that we already have.
-
-#Note this should be the final script run for the matching
-#It does not create its own links but rather just adds on 
-#to croatdata.txt where a death link is missing.
+# We can't link marriages to deaths very well because there are very few ages
+# given at marriage, which means we don't have anything to break ties with.  
+# We may be able to solve this problem later but for now we are just going
+# to accept the hand links where they don't conflict  with our own. This 
+# script just pulls out those hand links and adds them where they do not
+# conflict.
 
 print("Starting m2d.pl\n");
 
