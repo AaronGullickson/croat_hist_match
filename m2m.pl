@@ -1,5 +1,5 @@
 ########################
-# b2m.pl               #
+# m2m.pl               #
 # Perl Program         #
 # Aaron Gullickson     #
 ########################
@@ -74,12 +74,6 @@ foreach $line(<B2M>) {
     chop $line;
 
     ($mid, $hbid, $wbid, $hage, $wage, $score)=split("\t", $line);
-
-    if($mid==5501) {
-
-	$bob=1;
-
-    }
 
     $mid=&stripwhite($mid);
     $hbid=&stripwhite($hbid);
@@ -538,12 +532,6 @@ foreach $match (@matchesh) {
 
     ($score,$mid,$rmid,$myrdate,$bdate)=split("\t",$match);
 
-    if($mid==5501) {
-
-	$bob=1;
-
-    }
-
     if($firstmar_notdone_h{$mid} && $remar_notdone_h{$rmid}) {
 
 	$newline=join("\t", $mid, "h", $rmid, $score, "1");
@@ -566,12 +554,6 @@ foreach $match (@matchesh) {
 	#now if I linked this remarriage then it becomes a candidate
 	#as a link for another remarriage later.  So I need to grab
 	#this remarriage and put it in a hash keyed by name
-
-	if($rmid==22992) {
-
-	    $bob=1;
-
-	}
 
 	$rmar=$remar_hash{$rmid};
 
@@ -763,57 +745,56 @@ for($i=2;$i<5;$i++) {
                  $mlnwit2,$mpowit2,$mlnhfull,$mlnwfull,$mlnwit1full,
                  $mlnwit2full,$mnamef,$mnames,$mmatchflag)=split("\t", $link);
 
-		#get the life history for this marriage
-		($junk,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,$idk9,
-		 $idk10,$idk11,$idk12,$idk13,$idk14)=split("\t",$m2bhash{$mid});
+		             #get the life history for this marriage
+		             ($junk,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,
+                 $idk7,$idk8,$idk9,$idk10,$idk11,$idk12,$idk13,
+                 $idk14)=split("\t",$m2bhash{$mid});
 
-		#if lastdate is missing, then replace it with date of
-		#marriage, because this will be used later in the scoring to
-		#determine the distance in observed events between marriages
+		             #if lastdate is missing, then replace it with date of
+		             #marriage, because this will be used later in the scoring to
+		             #determine the distance in observed events between marriages
 
-		if(&is_na($lastdate)) {
+		             if(&is_na($lastdate)) {
 
-		    $lastdate=$myrdate;
+		                 $lastdate=$myrdate;
 
-		}
+		             }
 
+		             ($firstmyrdate,$hbdate)=split("\t",$dateinfo{$mid."m"});
 
-		($firstmyrdate,$hbdate)=split("\t",$dateinfo{$mid."m"});
+		             $replength=$lastdate-$firstmyrdate;
 
-		$replength=$lastdate-$firstmyrdate;
+		             if(&isnull($mageh)) {
 
-		if(&isnull($mageh)) {
+		                 $mageh=$myrdate-$hbdate;
 
-		    $mageh=$myrdate-$hbdate;
+		             }
 
-		}
+		             $lastkidage=$rlastdate-$hbdate;
 
-		$lastkidage=$rlastdate-$hbdate;
+		             #what conditions disqualify
+		             #if remarriage is before marriage
+		             #if remarriage happens before last childbirth from previous marriage
 
-		#what conditions disqualify
-		#if remarriage is before marriage
-		#if remarriage happens before last childbirth from previous marriage
+		            if($rmyrdate>$myrdate && $rmyrdate>$lastdate && 
+                $replength<40 && $lastkidage<65) {
 
-		if($rmyrdate>$myrdate && $rmyrdate>$lastdate && $replength<40
-		   && $lastkidage<65) {
+		                #then this is a possible link
 
-		    #then this is a possible link
+		                  $score=&scoreremarh;
 
-		    $score=&scoreremarh;
+		                    if($score>10) {
 
-		    if($score>10) {
+			                       $line="$score\t$mid\t$rmid\t$myrdate\t$hbdate";
+			                       push(@matchesh,$line);
 
-			$line="$score\t$mid\t$rmid\t$myrdate\t$hbdate";
-			push(@matchesh,$line);
-			print(TEST "$line\n");
+		                    }
 
-		    }
+		            }
 
-		}
+	         }
 
-	    }
-
-	}
+	      }
 
     }
 
@@ -947,20 +928,20 @@ for($i=2;$i<5;$i++) {
 }
 
 ($linked_w2,$linked_w3,$linked_w4)=@links_w;
-
 ($linked_h2,$linked_h3,$linked_h4)=@links_h;
-print("There were $cases_w remarriages for women.  $zero_w cases had no links.  $multiple_w cases had more than one link\n$linked_w final links made. $linked_w2 final links made for 3rd marriages. $linked_w3 final links for 4th marriages.  $linked_w4 final links for 5th marriages.\n\n");
-print("There were $cases_h remarriages for men.  $zero_h cases had no links.  $multiple_h cases had more than one link\n$linked_h final  links made. $linked_h2 final links made for 3rd marriages. $linked_h3 final links for 4th marriages.  $linked_h4 final links for 5th marriages.\n");
+
+print(DETAIL "There were $cases_w remarriages for women.  $zero_w cases had no links.  $multiple_w cases had more than one link.\n\n$linked_w final links made. $linked_w2 final links made for 3rd marriages. $linked_w3 final links for 4th marriages.  $linked_w4 final links for 5th marriages.\n\n");
+print(DETAIL "There were $cases_h remarriages for men.  $zero_h cases had no links.  $multiple_h cases had more than one link.\n\n$linked_h final  links made. $linked_h2 final links made for 3rd marriages. $linked_h3 final links for 4th marriages.  $linked_h4 final links for 5th marriages.\n");
 
 sub scoreremarw {
 
     #things we might score on
-    #age at remarriage
-    #distance between last event of marriage and remarriage
-    #plausibility of length of reproductive period
-    #parish and place of last event in marriage and remarriage
-    #witnesses
-    #observed death of prior spouse
+    #- age at remarriage
+    #- distance between last event of marriage and remarriage
+    #- plausibility of length of reproductive period
+    #- parish and place of last event in marriage and remarriage
+    #- witnesses
+    #- observed death of prior spouse
 
     #find time between last event and new marriage
 
