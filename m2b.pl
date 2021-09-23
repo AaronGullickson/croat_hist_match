@@ -160,17 +160,11 @@ open (MARIN,"<$minfile") || die ("cant open"." $minfile");
 
 #output files
 $matchfile="output/m2b.matches.txt";
-$prelimfile="output/m2b.match.prelim.txt";
+#$prelimfile="output/m2b.match.prelim.txt";
 $detailfile="output/diagnostics/m2b.diag.txt";
-$sortfile="output/m2b.sorted.txt";
-$namesfile="output/m2b.names.txt";
-$kinfile="output/m2b.kin.txt";
-open (PRELIM, ">$prelimfile") || die ("cant open"." $prelimfile");
+#open (PRELIM, ">$prelimfile") || die ("cant open"." $prelimfile");
 open (FINAL,">$matchfile") || die ("cant open "."$matchfile");
 open (DETAIL, ">$detailfile") || die ("cant open "."$detailfile");
-open (SORT, ">$sortfile") || die ("cant open "."$sortfile");
-open (NAMES, ">$namesfile") || die ("cant open "."$namesfile");
-open (KIN, ">$kinfile") || die ("cant open "."$kinfile");
 
 print ("Program name is m2b.pl\n");
 
@@ -377,7 +371,7 @@ foreach $birth(@BIRTH) {
 
   if($empty) {
 
-    printf(PRELIM "%6d\t %s\t %s\t %s\n", $bid2, $na, $na, $na);
+    #printf(PRELIM "%6d\t %s\t %s\t %s\n", $bid2, $na, $na, $na);
 
     #assign this birth to the unlinked birth array to later
     #build sibsets with.
@@ -428,7 +422,7 @@ foreach $birth(@BIRTH) {
 
       ($score, $bdate, $bid, $mid)=split("\t", $ref);
 
-      printf(PRELIM "%6d\t %6d\t %6d\t %6d\n", $bid, $mid, $bdate, $score);
+      #printf(PRELIM "%6d\t %6d\t %6d\t %6d\n", $bid, $mid, $bdate, $score);
 
     }
 
@@ -449,8 +443,8 @@ $keychanger=1;
 
 foreach $birth(@unlinked) {
 
-  ($bpar,$bid1,$bid2,$uni,$bdate,$byyy,$bmm,$bdd,$bfn,$bsx,$bfnf,$blnf,$bfnm,$blnm,$bpob,
-   $bfng,$blng,$bpog) = split("\t",$birth);
+  ($bpar,$bid1,$bid2,$uni,$bdate,$byyy,$bmm,$bdd,$bfn,$bsx,$bfnf,$blnf,$bfnm,
+	$blnm,$bpob,$bfng,$blng,$bpog) = split("\t",$birth);
 
   $bfnf = &stripwhite($bfnf);
   $blnf = &stripwhite($blnf);
