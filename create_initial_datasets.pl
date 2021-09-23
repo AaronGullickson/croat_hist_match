@@ -44,7 +44,6 @@
 ###################
 # INPUT/OUTPUT
 
-#use lib(qw(~/projects/CROAT/MATCH/));
 require generalsubs;
 
 &get_date_time;
