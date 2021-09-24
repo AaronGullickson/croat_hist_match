@@ -1,0 +1,47 @@
+Detail file for b2m.pl
+Program started on Thu Sep 23 2021 at 17:05:48
+
+Weights used in analysis:
+wit1	pob	ln	agediff	sx	age	wit2	fnf	parish	fn
+5	5	10	10	10	20	5	5	5	10
+
+Maximum score is 85
+
+The lowest allowed score is 30
+
+Length of sortedbirths is 112181
+Length of sortedmars is 23307
+
+Number of first marriages for women is 18639
+
+Number of first marriages for men is 17859
+
+13700 first marriages for men have no recorded age at marriage
+As a percentage of all male first marriages, this is 76.7120219497172%
+
+14468 first marriages for women have no recorded age at marriage
+As a percentage of all female first marriages, this is 77.6221900316541%
+
+The number of unique wives' names is 8237
+The number of unique husbands' names is 9054
+
+Number of births matched initially is 41148
+As a percentage of all first births, this is 36.6800082010323%
+
+The average number of matches for births that were matched is 1.92403032954214
+
+Number of births matched in final links is 21749
+As a percentage of all births, this is 19.3874185468127%
+
+Number of marriages matched to a husband in final links is 10690
+As a percentage of all marriages, this is 59.8577747914217%
+
+14841 marriages were matched to at least one spouse
+7934 marriages were matched for only one spouse
+6907 marriages were matched to both spouses
+
+Number of marriages matched to a wife in final links is 11058
+As a percentage of all marriages, this is 59.3272171253823%
+
+Program ended on Thu Sep 23 2021 at 17:05:57
+

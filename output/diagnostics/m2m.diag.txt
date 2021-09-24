@@ -1,0 +1,10 @@
+Detail file for m2m.pl
+Program started on Thu Sep 23 2021 at 17:05:57
+
+There were 4660 remarriages for women.  1402 cases had no links.  1686 cases had more than one link.
+
+3111 final links made. 253 final links made for 3rd marriages. 13 final links for 4th marriages.  2 final links for 5th marriages.
+
+There were 5439 remarriages for men.  1919 cases had no links.  1033 cases had more than one link.
+
+3113 final  links made. 330 final links made for 3rd marriages. 0 final links for 4th marriages.  0 final links for 5th marriages.

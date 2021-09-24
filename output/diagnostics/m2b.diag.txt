@@ -1,0 +1,31 @@
+Detail file for m2b.pl
+Program started on Thu Sep 23 2021 at 17:05:43
+
+There were 23307 marriages
+There were 112181 births
+
+There were 23205 unique name combinations when all four were used
+
+26 marriages were missing husband's first name
+26 marriages were missing wife's first name
+79 marriages were missing husband's last name
+292 marriages were missing wife's last name
+
+2011 births were missing father's first name
+532 births were missing mother's first name
+2374 births were missing father's last name
+15306 births were missing mother's last name
+
+There were 65541 matches
+58.4243321061499 percent of births were linked to a marriage
+
+There were 46640 unmatched births
+Of these, 43767 had sufficient parental names
+Of these, 43767 were accepted into kinsets
+
+The average family size in linked families was 2.81207362594929
+The average family size in unlinked families was 2.1692605075337
+There were 146 births that had tied marriage links
+
+Program ended on Thu Sep 23 2021 at 17:05:48
+

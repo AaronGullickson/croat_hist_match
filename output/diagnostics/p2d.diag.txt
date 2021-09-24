@@ -1,0 +1,8 @@
+Detail file for p2d.pl
+Program started on Thu Sep 23 2021 at 17:07:04
+
+There were 58396 non-real people and 39735 deaths unlinked.
+
+16892 had at least one preliminary match and 10347 of these were ultimately linked to a death
+
+41504 had no preliminary matches
