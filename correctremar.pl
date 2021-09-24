@@ -44,6 +44,12 @@ foreach $line(<FULL>) {
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $line);
 
+   #is this the header line?
+   if($bid eq "bid") {
+     $header=$line;
+     next;
+   }
+
   #get the bids associated with first marriages
   $id2m_hash{"$mid1"."$sex"}=$bid if(&isnot_na($mid1));
 
@@ -121,6 +127,9 @@ close(FULL);
 #  Section 2: Fix pointers and print corrected line
 
 open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
+
+#print the header line 
+print(FULL "$header\n");
 
 @id = keys %croat;
 $dadreplaced=0;

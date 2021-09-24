@@ -238,7 +238,11 @@ foreach $line (<FULL>) {
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $line);
 
-  #put line into hash so I can put linked deaths there later
+	 #is this the header line?
+   if($bid eq "bid") {
+     $header=$line;
+     next;
+   }
 
   $croat{$bid}=$line;
 
@@ -406,6 +410,9 @@ foreach $line (<FULL>) {
 
 close FULL;
 open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
+
+#print the header line 
+print(FULL "$header\n");
 
 print("Part III: Sorting and Final Linking\n");
 

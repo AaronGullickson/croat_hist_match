@@ -55,6 +55,13 @@ foreach $line(<FULL>) {
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $line);
   
+   #is this the header line?
+   if($bid eq "bid") {
+     $header="$line\tloe";
+     next;
+   }
+
+  
   #collect all the dates into an array
 
   @dates=($bdate, 
@@ -72,11 +79,6 @@ foreach $line(<FULL>) {
   if($lastgpevent>$lastdate) {
     $replacedgp++;
     $lastdate=$lastgpevent;
-  }
-  
-  #get first line of headers
-  if($bid eq "bid") {
-    $lastdate="loe"
   }
 
   $newline=join("\t", $bid, $bdate, $sex, 
@@ -104,6 +106,9 @@ foreach $line(<FULL>) {
 
 close FULL;
 open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
+
+#print the header line 
+print(FULL "$header\n");
 
 @bid =keys %croat;
 foreach $bid (@bid) {

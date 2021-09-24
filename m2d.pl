@@ -189,6 +189,12 @@ foreach $line(<FULL>) {
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t", $line);
   
+	 #is this the header line?
+ 	if($bid eq "bid") {
+ 		$header=$line;
+ 		next;
+ 	}
+	
   #get the last date of birth in the family
 
   $dob = join("\t",$dobk1, $dobk2, $dobk3, $dobk4, $dobk5, $dobk6, $dobk7,
@@ -333,6 +339,9 @@ foreach $line(<FULL>) {
 #close croatdata and then re-open
 close FULL;
 open (FULL,">$fulldatafile") || die ("cant open"." $fulldatafile");
+
+#print the header line 
+print(FULL "$header\n");
 
 ###print out full data
 @bid =keys %croat;
