@@ -549,7 +549,9 @@ foreach $key(@keys) {
    $dobk9, $dobk10, $dobk11, $dobk12, $dobk13, $dobk14, $wiferemar,
    $husbremar)=split("\t", $marriage);
 
-  #print "$mid\n";
+   if($mid==5) {
+     $bob=1;
+   }
 
   if($hbid>200000 && &isnull($husbfound_hash{$key}) && &isnull($isremar_hash{$key."m"})) {
 
