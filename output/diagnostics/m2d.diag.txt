@@ -1,14 +1,14 @@
 Detail file for m2d.temp.pl
-Program started on Mon Sep 27 2021 at 16:58:57
+Program started on Tue Sep 28 2021 at 14:43:48
 
 11554 m2d links for men were found in hand-linked data
 10472 m2d links for men were found in hand-linked data
 
-2674 m2d links for women were added initially
-1633 m2d links for men were added initially
+2673 m2d links for women were added initially
+1631 m2d links for men were added initially
 
 361 m2d links for women were rejected
 550 m2d links for men were rejected
 
-Program finished on Mon Sep 27 2021 at 16:59:05
+Program finished on Tue Sep 28 2021 at 14:43:56
 

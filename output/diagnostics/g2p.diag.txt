@@ -1,73 +1,73 @@
 Detail file for g2p.pl
-Program started on Mon Sep 27 2021 at 16:59:05
+Program started on Tue Sep 28 2021 at 14:43:56
 
 There were 23044 valid first witnesses and 22788 second witnesses
 
-There were 34257 dads and 63240 moms who could be linked from croatdata3.txt
+There were 34256 dads and 64071 moms who could be linked from croatdata3.txt
 
-There were 65678 preliminary matches for the first witness
-There were 25832 preliminary matches for the second witness
+There were 65757 preliminary matches for the first witness
+There were 25850 preliminary matches for the second witness
 
-On average, there were 2.81795168833398 potential matches for each first witness link
+On average, there were 2.82134122795727 potential matches for each first witness link
 The proportion of first witness links with more than one possible match was 0.560518299223409
 There were 18864 final matches for the first witness
 There were 12146 final matches for the second witness
 
 There were 35945 first parity births
-There were 18442 linked first parity births
-There were 12241 ties for parity one godparents
+There were 18522 linked first parity births
+There were 12321 ties for parity one godparents
 
 There were 20805 second parity births
-There were 11245 linked second parity births
-There were 5943 ties for parity two godparents
+There were 11286 linked second parity births
+There were 5980 ties for parity two godparents
 
 There were 15545 third parity births
-There were 8459 linked third parity births
-There were 4135 ties for parity three godparents
+There were 8495 linked third parity births
+There were 4109 ties for parity three godparents
 
 There were 11754 fourth parity births
-There were 6572 linked fourth parity births
-There were 3064 ties for parity four godparents
+There were 6604 linked fourth parity births
+There were 3095 ties for parity four godparents
 
 There were 8705 fifth parity births
-There were 4813 linked fifth parity births
-There were 2130 ties for parity five godparents
+There were 4828 linked fifth parity births
+There were 2167 ties for parity five godparents
 
 There were 6242 sixth parity births
-There were 3438 linked sixth parity births
-There were 1548 ties for parity six godparents
+There were 3451 linked sixth parity births
+There were 1566 ties for parity six godparents
 
 There were 4215 seventh parity births
-There were 2333 linked seventh parity births
-There were 1016 ties for parity seven godparents
+There were 2345 linked seventh parity births
+There were 1030 ties for parity seven godparents
 
 There were 2671 eighth parity births
-There were 1491 linked eighth parity births
-There were 674 ties for parity eight godparents
+There were 1496 linked eighth parity births
+There were 700 ties for parity eight godparents
 
 There were 1631 ninth parity births
-There were 909 linked ninth parity births
-There were 455 ties for parity nine godparents
+There were 914 linked ninth parity births
+There were 438 ties for parity nine godparents
 
 There were 904 tenth parity births
-There were 491 linked tenth parity births
-There were 222 ties for parity ten godparents
+There were 501 linked tenth parity births
+There were 231 ties for parity ten godparents
 
 There were 446 eleventh parity births
 There were 264 linked eleventh parity births
-There were 152 ties for parity eleven godparents
+There were 162 ties for parity eleven godparents
 
 There were 234 twelfth parity births
-There were 125 linked twelfth parity births
-There were 74 ties for parity twelve godparents
+There were 126 linked twelfth parity births
+There were 67 ties for parity twelve godparents
 
 There were 138 thirteenth parity births
-There were 86 linked thirteenth parity births
-There were 36 ties for parity thirteen godparents
+There were 87 linked thirteenth parity births
+There were 35 ties for parity thirteen godparents
 
 There were 73 fourteenth parity births
 There were 45 linked fourteenth parity births
 There were 29 ties for parity fourteen godparents
 
-All together, 58713 godparents were matched for 109308 births
+All together, 58964 godparents were matched for 109308 births
 109308 births
