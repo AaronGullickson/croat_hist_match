@@ -609,8 +609,6 @@ foreach $key(@keys) {
 		  $mdate1, $mdate2, $mdate3, $mdate4, $mdate5,	       
 		  "NA", "NA");
 
-    print(IND "$newline\n");
-
     $inddata_hash{$hbid}=$newline;
 
   }
@@ -668,8 +666,6 @@ foreach $key(@keys) {
 		  $mid1, $mid2, $mid3, $mid4, $mid5,
 		  $mdate1, $mdate2, $mdate3, $mdate4, $mdate5,	       
 		  "NA", "NA");
-
-    print(IND "$newline\n");
     
     $inddata_hash{$wbid}=$newline;
 
@@ -695,12 +691,6 @@ print("Beginning Section 4: Combining datasets in individual format\n");
 #print out column headings
 
 print(DATA "bid\tbdate\tsex\tmotherid\tfatherid\tmid1\tmid2\tmid3\tmid4\tmid5\tsid1\tsid2\tsid3\tsid4\tsid5\tmdate1\tmdate2\tmdate3\tmdate4\tmdate5\tdid\tddate\tidk1\tidk2\tidk3\tidk4\tidk5\tidk6\tidk7\tidk8\tidk9\tidk10\tidk11\tidk12\tidk13\tidk14\tdobk1\tdobk2\tdobk3\tdobk4\tdobk5\tdobk6\tdobk7\tdobk8\tdobk9\tdobk10\tdobk11\tdobk12\tdobk13\tdobk14\tsidk1\tsidk2\tsidk3\tsidk4\tsidk5\tsidk6\tsidk7\tsidk8\tsidk9\tsidk10\tsidk11\tsidk12\tsidk13\tsidk14\tremark1\tremark2\tremark3\tremark4\tremark5\tremark6\tremark7\tremark8\tremark9\tremark10\tremark11\tremark12\tremark13\tremark14\tremarok1\tremarok2\tremarok3\tremarok4\tremarok5\tremarok6\tremarok7\tremarok8\tremarok9\tremarok10\tremarok11\tremarok12\tremarok13\tremarok14\tpark1\tpark2\tpark3\tpark4\tpark5\tpark6\tpark7\tpark8\tpark9\tpark10\tpark11\tpark12\tpark13\tpark14\n");
-
-#Clear up some memory by deleting and closing things
-
-close (MAR);
-close (IND);
-
 
 #start with individual one
 
