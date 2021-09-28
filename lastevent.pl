@@ -97,7 +97,7 @@ foreach $line(<FULL>) {
 		 $remarok1,$remarok2,$remarok3,$remarok4,$remarok5,$remarok6,$remarok7,
      $remarok8,$remarok9,$remarok10,$remarok11,$remarok12,$remarok13,$remarok14,
 		 $park1,$park2,$park3,$park4,$park5,$park6,$park7,
-		 $park8,$park9,$park10,$park11,$park12,$park13,$park14,$lastdate);
+		 $park8,$park9,$park10,$park11,$park12,$park13,$park14,&na($lastdate));
   
   $croat{$bid}=$newline;
   

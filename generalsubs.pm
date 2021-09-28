@@ -13,6 +13,8 @@ sub na {
 
   $_ = shift @_;
   
+  $_=&stripwhite($_);
+  
   if(&isnull($_)) {
 
     return("NA") 

@@ -314,12 +314,12 @@ foreach $line(<FULL>) {
 
   #now reconstitute line
 
-   $newline=join("\t", $bid, $bdate, $sex, 
+   $newline=join("\t", $bid, &na($bdate), $sex, 
 		 $motherid, $fatherid, 
 		 $mid1, $mid2, $mid3, $mid4, $mid5, 
 		 $sid1, $sid2, $sid3, $sid4, $sid5,
 		 $mdate1, $mdate2, $mdate3, $mdate4, $mdate5, 
-		 $did, $ddate,
+		 &na($did), &na($ddate),
 		 $idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,
 		 $idk8,$idk9,$idk10,$idk11,$idk12,$idk13,$idk14,
 		 $dobk1, $dobk2, $dobk3, $dobk4, $dobk5, $dobk6, $dobk7, $dobk8, 
