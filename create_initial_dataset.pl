@@ -201,12 +201,6 @@ foreach $line(<B2M>) {
   $hbid=&stripwhite($hbid);
   $wbid=&stripwhite($wbid);
 
-  if($wbid==20488) {
-
-    $bob=1;
-
-  }
-
   $b2mbyb_hash{$hbid}=$mid;
   $b2mbyb_hash{$wbid}=$mid;
    
@@ -279,12 +273,6 @@ foreach $line (<M2B>) {
 
   ($mid,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,
   $idk9,$idk10,$idk11,$idk12,$idk13,$idk14)=split("\t", $line);
-
-  if($mid==9367) {
-
-    $bob=1;
-
-  }
 
   @kids=($idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,$idk9,$idk10,$idk11,
          $idk12,$idk13,$idk14);
@@ -391,20 +379,7 @@ foreach $line (<M2B>) {
   $mardata_hash{$mid}=$newline;
 
   #do the hash stuff for later
-
-  if($mid==6437) {
-
-    $bob=1;
-
-  }
-
   foreach $kid(@kids) {
-
-    if($kid==82532) {
-
-      $bob=1;
-
-    }
 
     $mother_hash{$kid}=$wbid;
     $father_hash{$kid}=$hbid;
@@ -448,23 +423,11 @@ foreach $key(@keys) {
   $bid=&stripwhite($bid2);
   $bsx=&stripwhite($bsx);
 
-  if($bid2==82532) {
-
-    $bob=1;
-
-  }
-
   #get marriage info
 
   #find the first marriage link
 
   $marlink=$b2mbyb_hash{$bid};
-
-  if($marlink==6230) {
-
-    $bob=1;
-
-  }
 
   if($bsx eq "f") {
 
@@ -587,12 +550,6 @@ foreach $key(@keys) {
    $husbremar)=split("\t", $marriage);
 
   #print "$mid\n";
-
-  if($mid==9367) {
-
-    $bob=1;
-
-  }
 
   if($hbid>200000 && &isnull($husbfound_hash{$key}) && &isnull($isremar_hash{$key."m"})) {
 
@@ -755,14 +712,6 @@ foreach $key(@keys) {
    $mid1, $mid2, $mid3, $mid4,$mid5, 
    $mdate1, $mdate2, $mdate3, $mdate4,$mdate5,
    $did, $ddate)=split("\t", $line);
-
-  if($bid==20487 || $bid==20488) {
-
-    $bob=1;
-
-  }
-
-
 
   @marriages=($mid1, $mid2, $mid3, $mid4, $mid5);
 
