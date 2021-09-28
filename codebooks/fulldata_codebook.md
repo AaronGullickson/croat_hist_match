@@ -24,7 +24,7 @@ More information and code for the linkage procedure is available at [https://git
 * **sex**: Sex of this person,  "f" for female and "m" for male.
 * **motherid**: The birth record for this individual's mother. 
 * **fatherid**: The birth record for this individual's father.
-* **mid1-mid5**: The marriage id number for this person's first to fifth marriage. 
+* **mid1-mid5**: The marriage id number for this person's first to fifth marriage. Marriage ids greater than or equal to 30,000 represent unobserved marriages identified by the parents to a set of births.
 * **sid1-sid5**: The birth id of the spouse for this person's first to fifth marriage.
 * **mdate1-mdate5**: The date of the first through fifth marriage.
 * **did**: The death record id for this individual. This corresponds to the death id in the original burial data.
