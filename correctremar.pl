@@ -1,6 +1,7 @@
-##This script will correct the parent and spouse pointers that
-## are mixed up due to m2m.  It should be run right after
-## createdatasets.pl
+# The create_initial_dataset.pl script does not have the correct sid and 
+# sidk values - it just creates new spouse ids even when ones already exist. 
+# This script will go through observations with remarriages, link them back 
+# to the first marriage and correct the sid and sidk values for the remai
 
 require generalsubs;
 
