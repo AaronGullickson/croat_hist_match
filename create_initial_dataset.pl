@@ -374,7 +374,7 @@ foreach $line (<M2B>) {
 
   #print and send to hash with marriage ID
 
-  print(MAR "$newline\n");
+  #print(MAR "$newline\n");
 
   $mardata_hash{$mid}=$newline;
 
@@ -524,7 +524,7 @@ foreach $key(@keys) {
 
   $inddata_hash{$bid}=$newline;
   
-  print(IND "$newline\n");
+  #print(IND "$newline\n");
 
 }
 
