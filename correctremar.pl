@@ -114,6 +114,13 @@ foreach $m2m(<M2M>) {
 
   ($mar, $sex, $remar, $junk)=split("\t", $m2m);
 
+  $mar=&stripwhite($mar);
+  $remar=&stripwhite($remar);
+
+  if($mar==5 || $remar==5) {
+    $bob=1;
+  }
+
   $sx="m" if($sex eq "h");
   $sx="f" if($sex eq "w");
 
@@ -161,6 +168,10 @@ foreach $id(@id) {
 
   $osex="m" if($sex eq "f");
   $osex="f" if($sex eq "m");
+
+  if($mid1==5) {
+    $bob=1;
+  }
 
   #need to check by marity
   if(&isnot_na($mid1)) {
