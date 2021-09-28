@@ -459,7 +459,11 @@ foreach $wit1(@link_wit1) {
     
     $g2p_hash{$mid}=join("\t",$mid,$bid2);
     #put in godparent hash
-    $gp_hash{$bid2}=join("\t",$gp_hash{$bid2},$myrdate);
+		if($gp_hash{$bid2}=="") {
+			$gp_hash{$bid2}=$myrdate;
+		} else {
+    	$gp_hash{$bid2}=join(",",$gp_hash{$bid2},$myrdate);
+		}
 
 
     $n_finalmatch_wit1++;
@@ -494,7 +498,11 @@ foreach $wit2(@link_wit2) {
   if($mid2_notdone{$mid}) {
 
     $g2p_hash{$mid}=join("\t",$g2p_hash{$mid},$bid2);
-    $gp_hash{$bid2}=join(" ",$gp_hash{$bid2},$myrdate);
+		if($gp_hash{$bid2}=="") {
+			$gp_hash{$bid2}=$myrdate;
+		} else {
+    	$gp_hash{$bid2}=join(",",$gp_hash{$bid2},$myrdate);
+		}
 
     $n_finalmatch_wit2++;
     
@@ -617,7 +625,11 @@ foreach $parity(@parity) {
 	if($bid_notdone{"$mid"."_"."$parity"}) {
      
 	    $g2p_hash{$mid}=join("\t",$g2p_hash{$mid},$bid_gp);
-	    $gp_hash{$bid_gp}=join(" ",$gp_hash{$bid_gp},$bdate);
+			if($gp_hash{$bid_gp}=="") {
+				$gp_hash{$bid_gp}=$bdate;
+			} else {
+	    	$gp_hash{$bid_gp}=join(",",$gp_hash{$bid_gp},$bdate);
+			}
 
 	    $bid_notdone{"$mid"."_"."$parity"}=0;
 	    

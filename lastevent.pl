@@ -60,7 +60,6 @@ foreach $line(<FULL>) {
      $header="$line\tloe";
      next;
    }
-
   
   #collect all the dates into an array
 
@@ -73,7 +72,7 @@ foreach $line(<FULL>) {
   $lastdate=&max(@dates);
   
   #check godparenting
-  @godparenting=split("\t",$gp_hash{$bid});
+  @godparenting=split(",",$gp_hash{$bid});
 
   $lastgpevent=&max(@godparenting);
   if($lastgpevent>$lastdate) {
