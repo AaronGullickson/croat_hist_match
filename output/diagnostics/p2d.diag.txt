@@ -1,5 +1,5 @@
 Detail file for p2d.pl
-Program started on Thu Sep 23 2021 at 17:07:04
+Program started on Mon Sep 27 2021 at 16:58:49
 
 There were 58396 non-real people and 39735 deaths unlinked.
 

@@ -1,13 +1,13 @@
 Detail file for b2d.pl
-Program started on Thu Sep 23 2021 at 17:06:00
+Program started on Mon Sep 27 2021 at 16:57:44
 
 Weights used in analysis:
-fn	age	pob	ln	sx	fnf	pres	parish	pbur
-10	20	5	10	10	10	5	5	5
+fnf	sx	pob	ln	age	pres	parish	pbur	fn
+10	10	5	10	20	5	5	5	10
 
 Age ranges used in analysis:
-twentyyearend	overfourtystart	tenyear	twentyearstart	threeyearstart	week	fourtyyear	month	threeyearend	overfourtyat80	year
-730	3650	365	365	365	7	1825	31	365	3650	365
+month	fourtyyear	threeyearstart	threeyearend	year	overfourtyat80	twentyearstart	overfourtystart	tenyear	week	twentyyearend
+31	1825	365	365	365	3650	365	3650	365	7	730
 
 Maximum score is 0
 
@@ -33,5 +33,5 @@ There were 168 scoring ties
 Number of births matched in final links is 54342
 As a percentage of all births, this is 48.4413581622556%
 
-Program ended on Thu Sep 23 2021 at 17:06:13
+Program ended on Mon Sep 27 2021 at 16:57:57
 
