@@ -139,10 +139,6 @@ foreach $rec (<CROAT>) {
    $park1,$park2,$park3,$park4,$park5,$park6,$park7,
    $park8,$park9,$park10,$park11,$park12,$park13,$park14)=split("\t",$rec);
 
-  if($bid==47670) {
-    $bob=1;
-  }
-
   #fill in gp_hash
 
   $gp_hash{$bid}="";
@@ -289,12 +285,6 @@ foreach $line (<M2B>) {
   
   ($mid,$lastdate,$numkids,$idk1,$idk2,$idk3,$idk4,$idk5,$idk6,$idk7,$idk8,$idk9,
    $idk10,$idk11,$idk12,$idk13,$idk14)=split("\t", $line);
-
-  if($mid>30000) {
-
-    $bob=1;
-
-  }
 
   #only put in hash if there is a real birth
   #change this to a single hash where key is mid.parity
@@ -486,12 +476,6 @@ foreach $wit1(@link_wit1) {
 foreach $mkey(@marid2) {
 
   if($mid1_notdone{$mkey}) {
-
-    if($mkey>30000) {
-
-      $bob=1;
-
-    }
 
     $g2p_hash{$mkey}=join("\t",$mkey,"NA");
 
