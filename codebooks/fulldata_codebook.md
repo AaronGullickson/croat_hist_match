@@ -1,6 +1,6 @@
 # Codebook for UC Croatia Life History Datatset
 
-The full dataset contains records for individuals identified in the linkage procedure of deaths, births, and burials for seven parishes in central Croatia. Each line of the data represents a single individual. View the full documention on raw data sources and reconstitution procedures at the [project page](https://github.com/AaronGullickson/croat_hist_match). 
+The full dataset contains records for individuals identified in the linkage procedure of deaths, births, and burials for seven parishes in central Croatia. Each line of the data represents a single individual. View the full documention on raw data sources and reconstitution procedures at the [project page](https://github.com/uc-croatia-project/croat_hist_match). 
 
 The dataset itself is formatted as a tab-delimited text file with a header row that provides variable names.  There may be some white space around characters so trimming white space is recommended. in R, the following code will read in the dataset using the `readr` package:
 
@@ -13,7 +13,7 @@ fulldata <- read_tsv("fulldata.tsv", guess_max=170000)
 
 All dates in the file are the number of years or fractions thereof since 1700.
 
-More information and code for the linkage procedure is available at [https://github.com/AaronGullickson/croat_hist_match](https://github.com/AaronGullickson/croat_hist_match).
+More information and code for the linkage procedure is available at [https://github.com/uc-croatia-project/croat_hist_match](https://github.com/AaronGullickson/croat_hist_match).
 
 * **bid**: This variable is the id number for the birth record of this individual. This is the unique id that we use to identify each individual and link them to other individuals. However, not all observations in the dataset actually have an observed birth. There are three types of individuals identified by the range of their birth id:
   * *bid<200,000*: This represents a person with an observed birth record in the dataset. The birth id here matches the first birth id identified in the birth records.

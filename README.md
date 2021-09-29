@@ -17,7 +17,7 @@ To read in the data directly from GitHub, use the raw data link to the data:
 
 ```r
 library(readr)
-fulldata <- read_tsv("https://raw.githubusercontent.com/AaronGullickson/croat_hist_match/master/output/fulldata.tsv", 
+fulldata <- read_tsv("https://raw.githubusercontent.com/uc-croatia-project/croat_hist_match/master/output/fulldata.tsv", 
                      guess_max=170000)
 ```
 
