@@ -1,0 +1,26 @@
+
+birth.specs: unified format for *birth.uni files:
+                          column
+		       begin----length
+book                     1	4
+page                     5	4
+year                     9	3
+month                    12	2
+day                      14	2
+priest                   16	25
+fname child              41	15
+sex of child             56	1
+fname father             57	15
+lname father             72	20
+fname mother             92	15
+lname mother             107	20
+place of birth           127	15
+fname godparent          142	15
+lname godparent          157	20
+place of godparent       177	15
+legit                    192	1
+comment                  193	3 
+fname midwife         	 196	15
+lname midwife         	 211	20
+occup father             231	15
+

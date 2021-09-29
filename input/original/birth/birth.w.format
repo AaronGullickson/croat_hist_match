@@ -1,0 +1,25 @@
+
+Tokenized lnames are 10 characters, untokenized are 15.
+birth.w.format:  format for birth.w file:
+:::::::::::::::::::::::::::::::::::::::::::::::::
+                         Column
+		      start  length
+parish                  1       1
+id (rec no in birth.w)  2       6
+year                    8       3
+month                   11      2
+day                     13      2
+fname child             15      5
+sex of child            20      1
+fname father            21      5
+lname father            26      10
+fname mother            36      5
+lname mother            41      10
+place of birth          51      5
+fname godparent         56      5
+lname godparent         61      10
+place of godparent      71      5
+lname father            76      15
+lname mother            91      15
+lname godparent        106      15
+rec num in *.birth.uni 121      5

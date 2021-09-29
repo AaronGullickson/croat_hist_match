@@ -1,0 +1,32 @@
+mar.w.format:  format for mar.w file:
+:::::::::::::::::::::::::::::::::::::::::::::::::
+			start  end     size
+parish code               1     1      1        (B,C,G,O,P,S,V)
+id  (rec no)              2     6      5
+year                      7     9      3
+month                     10    11     2
+day                       12    13     2
+fname husb                14    18     5
+lname husb tok            19    28    10
+mar st husb n/u           29    29     1        n=unmarried,u=married
+age husb                  30    31     2
+place husb                32    36     5
+fname husb.oca            37    41     5
+fname wife                42    46     5
+lname wife tok            47    56    10
+mar st wife n/u           57    57     1        n=unmarried,u=married
+age wife                  58    59     2
+place wife                60    64     5
+fname wife's{fath/husb}   65    69     5
+fath=1/husb=2             70    70     1
+fname witness 1           71    75     5
+lname witness 1 tok       76    85     10
+place witness 1           86    90     5
+fname witness 2           91    95     5
+lname witness 2 tok       96    105    10
+place witness 2           106   110   5
+lname husb                111   125   15
+lname wife                126   140   15
+lname witness 1           141   155   15
+lname witness 2           156   170   15
+rec num in *.mar.uni      171   175   5

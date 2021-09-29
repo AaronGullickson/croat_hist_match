@@ -1,0 +1,24 @@
+death.specs for total sample in unified format. Files *.death.uni: 
+
+                  Column
+variable        beg-----len
+book            1       4
+page            5       4
+year            9       3
+month           12      2
+day             14      2
+fname deceased  16      15
+lname deceased  31      20
+sex             51      1
+age death yrs   52      2
+age death mon   54      2
+age death day   56      2
+fname father    58      15
+fname spouse    73      15       
+cause death     88      20
+place birth     108     15
+place resid     123     15
+place burial    138     15
+comment         153     4
+maiden lname    157     15
+

@@ -1,0 +1,30 @@
+mar.specs for total sample in unified format. Files *.mar.uni: 
+
+                         
+book                    1       4
+page                    5       4
+year                    9       3
+month                   12      2
+day                     14      2
+priest                  16      25
+fname husb              41      15
+lname husb              56      20
+fname husb father       76      15
+mar.status husb         91      1  n=unmar,u=widowed
+age husb                92      2
+place husb              94      15
+fname wife              109     15
+lname wife              124     20
+fname wife father       144     15
+fname wife prev husb    159     15
+mar.status wife         174     1  n=unmar,u=widowed
+age wife                175     2
+place wife              177     15
+fname witness 1         192     15
+lname witness 1         207     20
+place witness 1         227     15
+fname witness 2         242     15
+lname witness 2         257     20
+place witness 2         277     15
+comment                 292     3
+stepfather              295     25

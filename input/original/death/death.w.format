@@ -1,0 +1,23 @@
+Tokenized last names are 10 characters, untokenized are 15.
+death.w.format:  format for death.w file:
+:::::::::::::::::::::::::::::::::::::::::::::::::
+		      start  length
+parish code           1       1        
+id number             2       6
+year                  8       3
+month                 11      2
+day                   13      2
+fname deceased        15      5
+sex                   20      1
+lname deceased  tok   21      10
+age at death yrs      31      2
+age at death months   33      2
+age at death days     35      2
+fname relative        37      5
+reltyp f=fa s=spous   42      1
+place of birth        43      5
+place of residence    48      5
+place of burial       53      5
+marital status dec    58      1 m=married w=widowed
+lname deceased        59      15
+recno in *.uni file   74      5
