@@ -1,4 +1,4 @@
-# Codebook for Croatian Nominal Linkage Dataset
+# Codebook for UC Croatia Life History Datatset
 
 The full dataset contains records for individuals identified in the linkage procedure of deaths, births, and burials for seven parishes in central Croatia. Each line of the data represents a single individual. 
 
@@ -6,8 +6,7 @@ The dataset itself is formatted as a tab-delimited text file with a header row t
 
 ```r
 library(readr)
-fulldata <- read_tsv("fulldata.tsv",
-                     guess_max=170000, trim_ws=TRUE)
+fulldata <- read_tsv("fulldata.tsv", guess_max=170000)
 ```
 
 
