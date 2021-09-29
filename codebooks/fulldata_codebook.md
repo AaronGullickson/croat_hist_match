@@ -34,4 +34,11 @@ More information and code for the linkage procedure is available at [https://git
 * **remark1-remark14**: A dummy variable (0=FALSE; 1=TRUE) indicating whether this child was born in a remarriage for the person.
 * **remarok1-remarok14**: A dummy variable (0=FALSE;1=TRUE) indicating whether this child was born in a remarriage for the spouse of this person.
 * **park1-park14**: The parish of birth for the first through fourteenth child of this person, identified by letter. There are seven parishes in the dataset.
+  * B - Bogicevci. This is a military parish.
+  * C - Cernik. This is the only civil parish.
+  * G - Gradiska. This is a military parish.
+  * O - Oriovac. This is a military parish.
+  * P - Petrovo Selo. This is a military parish.
+  * S - Stivica. This is a military parish.
+  * V - Vrbje. This is a military parish.
 * **loe** - The date of the last observed event for this person (including their own potential death). This last observed event can include being listed as a godparent in the birth data.
