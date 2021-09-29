@@ -1,9 +1,9 @@
 Detail file for b2m.pl
-Program started on Tue Sep 28 2021 at 14:42:07
+Program started on Wed Sep 29 2021 at 15:19:25
 
 Weights used in analysis:
-fn	ln	age	wit1	agediff	wit2	sx	fnf	parish	pob
-10	10	20	5	10	5	10	5	5	5
+wit2	parish	fnf	fn	wit1	agediff	pob	age	ln	sx
+5	5	5	10	5	10	5	20	10	10
 
 Maximum score is 85
 
@@ -43,5 +43,5 @@ As a percentage of all marriages, this is 59.8577747914217%
 Number of marriages matched to a wife in final links is 11058
 As a percentage of all marriages, this is 59.3272171253823%
 
-Program ended on Tue Sep 28 2021 at 14:42:20
+Program ended on Wed Sep 29 2021 at 15:19:36
 

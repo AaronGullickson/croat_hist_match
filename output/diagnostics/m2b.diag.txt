@@ -1,5 +1,5 @@
 Detail file for m2b.pl
-Program started on Tue Sep 28 2021 at 14:42:00
+Program started on Wed Sep 29 2021 at 15:19:20
 
 There were 23307 marriages
 There were 112181 births
@@ -27,5 +27,5 @@ The average family size in linked families was 2.81207362594929
 The average family size in unlinked families was 2.1692605075337
 There were 146 births that had tied marriage links
 
-Program ended on Tue Sep 28 2021 at 14:42:07
+Program ended on Wed Sep 29 2021 at 15:19:25
 

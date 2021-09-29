@@ -1,65 +1,65 @@
 Detail file for g2p.pl
-Program started on Tue Sep 28 2021 at 14:43:56
+Program started on Wed Sep 29 2021 at 15:21:09
 
 There were 23044 valid first witnesses and 22788 second witnesses
 
 There were 34256 dads and 64071 moms who could be linked from croatdata3.txt
 
-There were 65757 preliminary matches for the first witness
+There were 65758 preliminary matches for the first witness
 There were 25850 preliminary matches for the second witness
 
-On average, there were 2.82134122795727 potential matches for each first witness link
+On average, there were 2.82138413352212 potential matches for each first witness link
 The proportion of first witness links with more than one possible match was 0.560518299223409
 There were 18864 final matches for the first witness
 There were 12146 final matches for the second witness
 
 There were 35945 first parity births
 There were 18522 linked first parity births
-There were 12321 ties for parity one godparents
+There were 12317 ties for parity one godparents
 
 There were 20805 second parity births
 There were 11286 linked second parity births
-There were 5980 ties for parity two godparents
+There were 5981 ties for parity two godparents
 
 There were 15545 third parity births
 There were 8495 linked third parity births
-There were 4109 ties for parity three godparents
+There were 4104 ties for parity three godparents
 
 There were 11754 fourth parity births
 There were 6604 linked fourth parity births
-There were 3095 ties for parity four godparents
+There were 3094 ties for parity four godparents
 
 There were 8705 fifth parity births
 There were 4828 linked fifth parity births
-There were 2167 ties for parity five godparents
+There were 2196 ties for parity five godparents
 
 There were 6242 sixth parity births
 There were 3451 linked sixth parity births
-There were 1566 ties for parity six godparents
+There were 1556 ties for parity six godparents
 
 There were 4215 seventh parity births
 There were 2345 linked seventh parity births
-There were 1030 ties for parity seven godparents
+There were 1038 ties for parity seven godparents
 
 There were 2671 eighth parity births
 There were 1496 linked eighth parity births
-There were 700 ties for parity eight godparents
+There were 709 ties for parity eight godparents
 
 There were 1631 ninth parity births
 There were 914 linked ninth parity births
-There were 438 ties for parity nine godparents
+There were 448 ties for parity nine godparents
 
 There were 904 tenth parity births
 There were 501 linked tenth parity births
-There were 231 ties for parity ten godparents
+There were 230 ties for parity ten godparents
 
 There were 446 eleventh parity births
 There were 264 linked eleventh parity births
-There were 162 ties for parity eleven godparents
+There were 167 ties for parity eleven godparents
 
 There were 234 twelfth parity births
 There were 126 linked twelfth parity births
-There were 67 ties for parity twelve godparents
+There were 60 ties for parity twelve godparents
 
 There were 138 thirteenth parity births
 There were 87 linked thirteenth parity births

@@ -1,22 +1,22 @@
 Detail file for create_initial_dataset.pl
-Program started on Tue Sep 28 2021 at 14:42:37
+Program started on Wed Sep 29 2021 at 15:19:53
 
-Section 1 started at 14:42:37
-Section 1 Complete at 14:42:40
+Section 1 started at 15:19:53
+Section 1 Complete at 15:19:55
 
-Section 2 started at 14:42:40
-Section 2 complete at 14:42:43
+Section 2 started at 15:19:55
+Section 2 complete at 15:19:58
 
-Section 3 started at 14:42:43
-Section 3 complete at 14:42:48
+Section 3 started at 15:19:58
+Section 3 complete at 15:20:03
 
-Section 4 started at 14:42:48
-Section 4 complete at 14:42:48
+Section 4 started at 15:20:03
+Section 4 complete at 15:20:03
 
 12617 men were imputed from missing data in an existing marriage
 12249 men were imputed from missing data in an existing marriage
 20176 men were imputed from a nonexisting marriage
 20176 women were imputed from a nonexisting marriage
 
-29349 men were imputed in the individual dataset
+29347 men were imputed in the individual dataset
 29046 women were imputed in the individual dataset
