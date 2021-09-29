@@ -1,6 +1,6 @@
 # Codebook for UC Croatia Life History Datatset
 
-The full dataset contains records for individuals identified in the linkage procedure of deaths, births, and burials for seven parishes in central Croatia. Each line of the data represents a single individual. 
+The full dataset contains records for individuals identified in the linkage procedure of deaths, births, and burials for seven parishes in central Croatia. Each line of the data represents a single individual. View the full documention on raw data sources and reconstitution procedures at the [project page](https://github.com/AaronGullickson/croat_hist_match). 
 
 The dataset itself is formatted as a tab-delimited text file with a header row that provides variable names.  There may be some white space around characters so trimming white space is recommended. in R, the following code will read in the dataset using the `readr` package:
 
